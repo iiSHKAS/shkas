@@ -34,6 +34,11 @@
       "name": "Zen Browser",
       "id": "Zen-Team.Zen-Browser",
       "description": "متصفح يركز على البساطة والهدوء"
+    },
+    {
+      "name": "shkastest",
+      "id": "test",
+      "description": "testtesttesttesttesttesttsetstsettstset"
     }
   ],
   "gaming and emulators": [
@@ -321,7 +326,9 @@
       "name": "DS4",
       "id": "Ryochan7.DS4Windows",
       "description": "برنامج دعم يد تحكم PS4",
-      "prerequisites": ["Microsoft.DotNet.DesktopRuntime.8"]
+      "prerequisites": [
+        "Microsoft.DotNet.DesktopRuntime.8"
+      ]
     },
     {
       "name": "EaseUS Partition Master",
@@ -409,4 +416,4 @@
       "description": "برنامج التحكم عن بعد بالحواسيب"
     }
   ]
-} 
+}
