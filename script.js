@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadApps();
     
     // إعداد مستمع البحث
-    const searchInput = document.getElementById('searchInput');
+    const searchInput = document.querySelector('#poda .input');
     let searchTimeout;
     
     if (searchInput) {
@@ -123,7 +123,31 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // إعداد أزرار السكربت
-    setupScriptButtons();
+    const generateScriptBtn = document.getElementById('generateScript');
+    if (generateScriptBtn) {
+        generateScriptBtn.addEventListener('click', generateScript);
+    }
+
+    // إعداد زر العودة
+    const backBtn = document.querySelector('.global-back-btn');
+    if (backBtn) {
+        backBtn.addEventListener('click', () => {
+            document.getElementById('scriptSection').classList.add('hidden-section');
+            document.getElementById('selectionSection').classList.remove('hidden-section');
+        });
+    }
+
+    // إعداد أزرار النسخ والحفظ
+    const copyBtn = document.querySelector('.copy-btn');
+    const saveBtn = document.querySelector('.save-btn');
+    
+    if (copyBtn) {
+        copyBtn.addEventListener('click', copyScript);
+    }
+    
+    if (saveBtn) {
+        saveBtn.addEventListener('click', saveScript);
+    }
 });
 
 // إضافة تأثيرات CSS
@@ -136,16 +160,42 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// إضافة هذه الدوال الجديدة
+// إضافة الدوال الناقصة
+function copyScript() {
+    const scriptContent = document.querySelector('.script-output').textContent;
+    navigator.clipboard.writeText(scriptContent)
+        .then(() => alert('تم نسخ السكربت بنجاح!'))
+        .catch(err => console.error('فشل النسخ:', err));
+}
+
+function saveScript() {
+    const scriptContent = document.querySelector('.script-output').textContent;
+    const blob = new Blob([scriptContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'install-apps.bat';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+// تعديل دالة generateScript لتظهر قسم السكربت
 function generateScript() {
+    if (selectedApps.size === 0) {
+        alert('الرجاء تحديد تطبيق واحد على الأقل!');
+        return;
+    }
+
     const selectedAppsArray = Array.from(selectedApps);
     let script = '@echo off\n\n';
     
     // تجميع كل التطبيقات المحددة
     selectedAppsArray.forEach(appId => {
         // البحث في جميع الفئات
-        for (const category in apps) {
-            const app = apps[category].find(a => a.id === appId);
+        for (const category in appsList) {
+            const app = appsList[category].find(a => a.id === appId);
             if (app) {
                 // إضافة المتطلبات إذا وجدت
                 if (app.prerequisites && app.prerequisites.length > 0) {
@@ -155,12 +205,15 @@ function generateScript() {
                 }
                 // إضافة التطبيق نفسه
                 script += `winget install -e --id ${app.id}\n`;
-                break; // الخروج من الحلقة بعد إيجاد التطبيق
+                break;
             }
         }
     });
     
+    // عرض السكربت وتبديل الأقسام
     document.querySelector('.script-output').textContent = script;
+    document.getElementById('selectionSection').classList.add('hidden-section');
+    document.getElementById('scriptSection').classList.remove('hidden-section');
 }
 
 function getPackageId(appName) {
@@ -173,82 +226,6 @@ function getPackageId(appName) {
         'Bitwarden': 'Bitwarden.Bitwarden'
     };
     return packageMap[appName] || appName.replace(/\s+/g, '');
-}
-
-// إزالة جميع الأحداث السابقة المتعلقة بالأزرار
-document.querySelector('.download-btn')?.removeEventListener('click', null);
-document.querySelector('.copy-btn')?.removeEventListener('click', null);
-document.querySelector('.save-btn')?.removeEventListener('click', null);
-document.querySelector('.global-back-btn')?.removeEventListener('click', null);
-
-// إضافة الأحداث الجديدة
-document.getElementById('generateScript').addEventListener('click', () => {
-    if (selectedApps.size === 0) {
-        alert('الرجاء تحديد تطبيق واحد على الأقل!');
-        return;
-    }
-    
-    generateScript();
-    
-    // التبديل بين الأقسام
-    document.getElementById('selectionSection').classList.remove('active-section');
-    document.getElementById('selectionSection').classList.add('hidden-section');
-    document.getElementById('scriptSection').classList.remove('hidden-section');
-    document.getElementById('scriptSection').classList.add('active-section');
-
-    // إضافة الأحداث للأزرار بعد إظهار النافذة
-    setupScriptButtons();
-});
-
-// دالة إعداد أزرار نافذة السكربت
-function setupScriptButtons() {
-    // زر النسخ
-    const copyButton = document.querySelector('.copy-btn');
-    if (copyButton) {
-        copyButton.onclick = () => {
-            const scriptContent = document.querySelector('.script-output').textContent;
-            navigator.clipboard.writeText(scriptContent)
-                .then(() => alert('تم نسخ السكربت بنجاح!'))
-                .catch(err => console.error('فشل النسخ:', err));
-        };
-    }
-
-    // زر الحفظ
-    const saveButton = document.querySelector('.save-btn');
-    if (saveButton) {
-        saveButton.onclick = () => {
-            const scriptContent = document.querySelector('.script-output').textContent;
-            const blob = new Blob([scriptContent], { type: 'text/plain' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'install-apps.bat';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        };
-    }
-
-    // زر العودة
-    const backButton = document.querySelector('.global-back-btn');
-    if (backButton) {
-        backButton.onclick = () => {
-            document.getElementById('scriptSection').classList.remove('active-section');
-            document.getElementById('scriptSection').classList.add('hidden-section');
-            document.getElementById('selectionSection').classList.remove('hidden-section');
-            document.getElementById('selectionSection').classList.add('active-section');
-        };
-    }
-}
-
-// دالة التحميل من localStorage
-function loadManagedApps() {
-    const savedApps = localStorage.getItem('apps');
-    if (savedApps) {
-        return JSON.parse(savedApps);
-    }
-    return appsList;
 }
 
 // إضافة دالة دمج التطبيقات
@@ -268,4 +245,63 @@ function mergeApps(original, stored) {
         });
     }
     return merged;
-} 
+}
+
+// إضافة مستمعي الأحداث للتمرير
+document.addEventListener('DOMContentLoaded', () => {
+    let isScrolling = false;
+    let isScrolled = false;
+
+    // تعديل دالة التمرير
+    function handleScroll(event) {
+        // التحقق مما إذا كان المؤشر فوق مربع التطبيقات
+        const appsContainer = document.querySelector('.apps-container');
+        if (appsContainer) {
+            const rect = appsContainer.getBoundingClientRect();
+            const isOverAppsContainer = (
+                event.clientX >= rect.left &&
+                event.clientX <= rect.right &&
+                event.clientY >= rect.top &&
+                event.clientY <= rect.bottom
+            );
+
+            // إذا كان المؤشر فوق مربع التطبيقات، اسمح بالتمرير الطبيعي
+            if (isOverAppsContainer) {
+                event.stopPropagation();
+                return;
+            }
+        }
+
+        // وإلا، قم بتنفيذ التمرير للصفحة
+        if (!isScrolling) {
+            isScrolling = true;
+            
+            if (event.deltaY > 0 && !isScrolled) {
+                document.body.classList.add('scrolled');
+                isScrolled = true;
+            } else if (event.deltaY < 0 && isScrolled) {
+                document.body.classList.remove('scrolled');
+                isScrolled = false;
+            }
+
+            setTimeout(() => {
+                isScrolling = false;
+            }, 800);
+        }
+        event.preventDefault();
+    }
+
+    // إضافة مستمع حدث عجلة الماوس
+    window.addEventListener('wheel', handleScroll, { passive: false });
+
+    // إضافة مستمع النقر على زر السحب للأسفل
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', () => {
+            if (!isScrolled) {
+                document.body.classList.add('scrolled');
+                isScrolled = true;
+            }
+        });
+    }
+}); 
