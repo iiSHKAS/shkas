@@ -36,7 +36,7 @@
       "description": "متصفح يركز على البساطة والهدوء"
     }
   ],
-  "gaming And Emulators": [
+  "gaming and emulators": [
     {
       "name": "Steam",
       "id": "Valve.Steam",
@@ -86,14 +86,9 @@
       "name": "BlueStacks",
       "id": "BlueStack.BlueStacks",
       "description": "محاكي أندرويد للألعاب"
-    },
-    {
-      "name": "shkas",
-      "id": "shkas.app",
-      "description": "hi"
     }
   ],
-  "social And Entertainment": [
+  "social and entertainment": [
     {
       "name": "Discord",
       "id": "Discord.Discord",
@@ -145,7 +140,7 @@
       "description": "تطبيق لمشاهدة الأنمي"
     }
   ],
-  "streaming And Audio": [
+  "streaming and audio": [
     {
       "name": "OBS Studio",
       "id": "OBSProject.OBSStudio",
@@ -326,9 +321,7 @@
       "name": "DS4",
       "id": "Ryochan7.DS4Windows",
       "description": "برنامج دعم يد تحكم PS4",
-      "prerequisites": [
-        "Microsoft.DotNet.DesktopRuntime.8"
-      ]
+      "prerequisites": ["Microsoft.DotNet.DesktopRuntime.8"]
     },
     {
       "name": "EaseUS Partition Master",
@@ -416,4 +409,4 @@
       "description": "برنامج التحكم عن بعد بالحواسيب"
     }
   ]
-}
+} 
