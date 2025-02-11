@@ -95,12 +95,14 @@ document.addEventListener('DOMContentLoaded', function() {
     loadApps();
     
     // إعداد مستمع البحث
-    const searchInput = document.querySelector('.search-input');
+    const searchInput = document.getElementById('searchInput');
+    let searchTimeout;
+    
     if (searchInput) {
         searchInput.addEventListener('input', function(e) {
             clearTimeout(searchTimeout);
             searchTimeout = setTimeout(() => {
-                const activeCategory = document.querySelector('.category-btn.active').dataset.category;
+                const activeCategory = document.querySelector('.category-btn.active')?.dataset.category || 'all';
                 loadApps(activeCategory, e.target.value);
             }, 300);
         });
@@ -108,14 +110,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // مستمع أحداث التصنيفات
     const categoryButtons = document.querySelectorAll('.category-btn');
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            categoryButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            const category = button.dataset.category;
-            loadApps(category, searchInput.value);
+    if (categoryButtons.length > 0) {
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                const category = button.dataset.category;
+                const searchValue = searchInput ? searchInput.value : '';
+                loadApps(category, searchValue);
+            });
         });
-    });
+    }
 
     // إعداد أزرار السكربت
     setupScriptButtons();
