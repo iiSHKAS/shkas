@@ -37,7 +37,7 @@ let appsList = {
       "description": "متصفح يركز على البساطة والهدوء"
     }
   ],
-  "gamingAndEmulators": [
+  "gaming And Emulators": [
     {
       "name": "Steam",
       "id": "Valve.Steam",
@@ -94,7 +94,7 @@ let appsList = {
       "description": "hi"
     }
   ],
-  "socialAndEntertainment": [
+  "social And Entertainment": [
     {
       "name": "Discord",
       "id": "Discord.Discord",
@@ -146,7 +146,7 @@ let appsList = {
       "description": "تطبيق لمشاهدة الأنمي"
     }
   ],
-  "streamingAndAudio": [
+  "streaming And Audio": [
     {
       "name": "OBS Studio",
       "id": "OBSProject.OBSStudio",
