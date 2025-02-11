@@ -1,3 +1,4 @@
+// version: 1739281374
 let appsList = {
   "browsers": [
     {
@@ -36,7 +37,7 @@ let appsList = {
       "description": "متصفح يركز على البساطة والهدوء"
     },
     {
-      "name": "shkas",
+      "name": "بندر",
       "id": "shkas.app",
       "description": "hi"
     }
