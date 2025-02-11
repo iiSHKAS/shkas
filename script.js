@@ -23,8 +23,8 @@ function loadApps(category = 'all', searchQuery = '') {
 
     // تجميع كل التطبيقات في مصفوفة واحدة مع إضافة الفئة لكل تطبيق
     let allApps = [];
-    for (let categoryName in apps) {
-        apps[categoryName].forEach(app => {
+    for (let categoryName in appsList) {
+        appsList[categoryName].forEach(app => {
             allApps.push({
                 ...app,
                 category: categoryName
@@ -35,7 +35,12 @@ function loadApps(category = 'all', searchQuery = '') {
     // تصفية حسب الفئة
     let filteredApps = allApps;
     if (category !== 'all') {
-        filteredApps = allApps.filter(app => app.category === category);
+        filteredApps = allApps.filter(app => {
+            if (category === 'gaming and emulators' && app.category === 'gaming and emulators') return true;
+            if (category === 'social and entertainment' && app.category === 'social and entertainment') return true;
+            if (category === 'streaming and audio' && app.category === 'streaming and audio') return true;
+            return app.category === category;
+        });
     }
 
     // تصفية حسب البحث
