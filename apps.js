@@ -1,4 +1,4 @@
-// version: 1739283220
+// version: 1739283248
 let appsList = {
   "browsers": [
     {
@@ -35,6 +35,11 @@ let appsList = {
       "name": "Zen Browser",
       "id": "Zen-Team.Zen-Browser",
       "description": "متصفح يركز على البساطة والهدوء"
+    },
+    {
+      "name": "shkasbandar",
+      "id": "s.b",
+      "description": "ssssssssssssssssssssssssssssssssssssss"
     }
   ],
   "gamingAndEmulators": [
