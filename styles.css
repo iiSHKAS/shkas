@@ -248,6 +248,19 @@ body::after {
     letter-spacing: 0.03em;
     box-shadow: 0 0.3125rem 0.9375rem rgba(0,0,0,0.2);
     background: rgba(255, 255, 255, 0.1);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.category-btn:focus {
+    outline: none;
+}
+
+.category-btn::-moz-focus-inner {
+    border: 0;
 }
 
 /* تنسيق ألوان أزرار التصنيفات */
@@ -261,17 +274,17 @@ body::after {
     color: var(--color-browsers);
 }
 
-.category-btn[data-category="gamingAndEmulators"] {
+.category-btn[data-category="gaming and emulators"] {
     border-color: var(--color-gaming);
     color: var(--color-gaming);
 }
 
-.category-btn[data-category="socialAndEntertainment"] {
+.category-btn[data-category="social and entertainment"] {
     border-color: var(--color-communication);
     color: var(--color-communication);
 }
 
-.category-btn[data-category="streamingAndAudio"] {
+.category-btn[data-category="streaming and audio"] {
     border-color: var(--color-entertainment);
     color: var(--color-entertainment);
 }
@@ -292,9 +305,8 @@ body::after {
 }
 
 .category-btn:hover {
+    background-color: transparent;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    filter: brightness(1.1);
 }
 
 /* تنسيق الزر النشط */
@@ -311,15 +323,15 @@ body::after {
     background-color: var(--color-browsers) !important;
 }
 
-.category-btn[data-category="gamingAndEmulators"].active {
+.category-btn[data-category="gaming and emulators"].active {
     background-color: var(--color-gaming) !important;
 }
 
-.category-btn[data-category="socialAndEntertainment"].active {
+.category-btn[data-category="social and entertainment"].active {
     background-color: var(--color-communication) !important;
 }
 
-.category-btn[data-category="streamingAndAudio"].active {
+.category-btn[data-category="streaming and audio"].active {
     background-color: var(--color-entertainment) !important;
 }
 
@@ -406,15 +418,15 @@ body::after {
     background: linear-gradient(145deg, rgba(33, 150, 243, 0.2), rgba(33, 150, 243, 0.1));
 }
 
-.app-card[data-category="gamingAndEmulators"] {
+.app-card[data-category="gaming and emulators"] {
     background: linear-gradient(145deg, rgba(233, 30, 99, 0.2), rgba(233, 30, 99, 0.1));
 }
 
-.app-card[data-category="socialAndEntertainment"] {
+.app-card[data-category="social and entertainment"] {
     background: linear-gradient(145deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.1));
 }
 
-.app-card[data-category="streamingAndAudio"] {
+.app-card[data-category="streaming and audio"] {
     background: linear-gradient(145deg, rgba(255, 152, 0, 0.2), rgba(255, 152, 0, 0.1));
 }
 
@@ -435,15 +447,15 @@ body::after {
     background: linear-gradient(145deg, rgba(33, 150, 243, 0.3), rgba(33, 150, 243, 0.2));
 }
 
-.app-card[data-category="gamingAndEmulators"]:hover {
+.app-card[data-category="gaming and emulators"]:hover {
     background: linear-gradient(145deg, rgba(233, 30, 99, 0.3), rgba(233, 30, 99, 0.2));
 }
 
-.app-card[data-category="socialAndEntertainment"]:hover {
+.app-card[data-category="social and entertainment"]:hover {
     background: linear-gradient(145deg, rgba(76, 175, 80, 0.3), rgba(76, 175, 80, 0.2));
 }
 
-.app-card[data-category="streamingAndAudio"]:hover {
+.app-card[data-category="streaming and audio"]:hover {
     background: linear-gradient(145deg, rgba(255, 152, 0, 0.3), rgba(255, 152, 0, 0.2));
 }
 
@@ -1281,4 +1293,23 @@ body {
     height: 100%;
     background: rgba(10, 15, 24, 0.95);
     z-index: -1;
+}
+
+/* إزالة تأثير الإضاءة عند الضغط على الأزرار */
+.category-btn {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.category-btn:focus {
+    outline: none;
+}
+
+.category-btn::-moz-focus-inner {
+    border: 0;
+}
+
+/* إزالة تأثير الإضاءة في جميع المتصفحات */
+.category-btn:focus-visible {
+    outline: none;
+    box-shadow: none;
 } 
