@@ -34,9 +34,14 @@
       "name": "Zen Browser",
       "id": "Zen-Team.Zen-Browser",
       "description": "متصفح يركز على البساطة والهدوء"
+    },
+    {
+      "name": "تجربه رقم مليون",
+      "id": "12",
+      "description": "12234فرلالالالا"
     }
   ],
-  "gamingAndEmulators": [
+  "gaming and emulators": [
     {
       "name": "Steam",
       "id": "Valve.Steam",
@@ -93,7 +98,7 @@
       "description": "hi"
     }
   ],
-  "socialAndEntertainment": [
+  "social and entertainment": [
     {
       "name": "Discord",
       "id": "Discord.Discord",
@@ -145,7 +150,7 @@
       "description": "تطبيق لمشاهدة الأنمي"
     }
   ],
-  "streamingAndAudio": [
+  "streaming and audio": [
     {
       "name": "OBS Studio",
       "id": "OBSProject.OBSStudio",
