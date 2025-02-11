@@ -89,72 +89,22 @@ function getAppImage(app) {
     }
 }
 
-// إضافة مستمعي الأحداث
-document.addEventListener('DOMContentLoaded', () => {
-    let isScrolling = false;
-    let isScrolled = false;
-
-    // تعديل دالة التمرير
-    function handleScroll(event) {
-        // التحقق مما إذا كان المؤشر فوق مربع التطبيقات
-        const appsContainer = document.querySelector('.apps-container');
-        const rect = appsContainer.getBoundingClientRect();
-        const isOverAppsContainer = (
-            event.clientX >= rect.left &&
-            event.clientX <= rect.right &&
-            event.clientY >= rect.top &&
-            event.clientY <= rect.bottom
-        );
-
-        // إذا كان المؤشر فوق مربع التطبيقات، اسمح بالتمرير الطبيعي
-        if (isOverAppsContainer) {
-            event.stopPropagation();
-            return;
-        }
-
-        // وإلا، قم بتنفيذ التمرير للصفحة
-        if (!isScrolling) {
-            isScrolling = true;
-            
-            if (event.deltaY > 0 && !isScrolled) {
-                document.body.classList.add('scrolled');
-                isScrolled = true;
-            } else if (event.deltaY < 0 && isScrolled) {
-                document.body.classList.remove('scrolled');
-                isScrolled = false;
-            }
-
-            setTimeout(() => {
-                isScrolling = false;
-            }, 800);
-        }
-        event.preventDefault();
-    }
-
-    // إضافة مستمع حدث عجلة الماوس
-    window.addEventListener('wheel', handleScroll, { passive: false });
-
-    // إضافة مستمع النقر على زر السحب للأسفل
-    document.querySelector('.scroll-indicator').addEventListener('click', () => {
-        if (!isScrolled) {
-            document.body.classList.add('scrolled');
-            isScrolled = true;
-        }
-    });
-
+// إضافة مستمع لتحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    // تحميل التطبيقات
     loadApps();
-
-    // مستمع أحداث البحث
-    const searchInput = document.getElementById('searchInput');
-    let searchTimeout;
     
-    searchInput.addEventListener('input', (e) => {
-        clearTimeout(searchTimeout);
-        searchTimeout = setTimeout(() => {
-            const activeCategory = document.querySelector('.category-btn.active').dataset.category;
-            loadApps(activeCategory, e.target.value);
-        }, 300);
-    });
+    // إعداد مستمع البحث
+    const searchInput = document.querySelector('.search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                const activeCategory = document.querySelector('.category-btn.active').dataset.category;
+                loadApps(activeCategory, e.target.value);
+            }, 300);
+        });
+    }
 
     // مستمع أحداث التصنيفات
     const categoryButtons = document.querySelectorAll('.category-btn');
@@ -313,7 +263,4 @@ function mergeApps(original, stored) {
         });
     }
     return merged;
-}
-
-// تحميل التطبيقات مباشرة
-loadApps(); 
+} 
