@@ -86,6 +86,11 @@ let appsList = {
       "name": "BlueStacks",
       "id": "BlueStack.BlueStacks",
       "description": "محاكي أندرويد للألعاب"
+    },
+    {
+      "name": "shkas",
+      "id": "shkas.app",
+      "description": "hi"
     }
   ],
   "socialAndEntertainment": [
