@@ -1,4 +1,4 @@
-// version: 1739290719
+// version: 1739290955
 let appsList = {
   "browsers": [
     {
@@ -87,6 +87,11 @@ let appsList = {
       "name": "BlueStacks",
       "id": "BlueStack.BlueStacks",
       "description": "محاكي أندرويد للألعاب"
+    },
+    {
+      "name": "فثسف",
+      "id": "سي",
+      "description": "سي"
     }
   ],
   "social and entertainment": [
