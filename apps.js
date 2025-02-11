@@ -1,4 +1,4 @@
-// version: 1739284519
+// version: 1739284633
 let appsList = {
   "browsers": [
     {
@@ -39,7 +39,7 @@ let appsList = {
     {
       "name": "تجربه",
       "id": "s.b",
-      "description": "test"
+      "description": "hi"
     }
   ],
   "gamingAndEmulators": [
