@@ -36,7 +36,7 @@
       "description": "متصفح يركز على البساطة والهدوء"
     }
   ],
-  "gamingAndEmulators": [
+  "gaming And Emulators": [
     {
       "name": "Steam",
       "id": "Valve.Steam",
@@ -93,7 +93,7 @@
       "description": "hi"
     }
   ],
-  "socialAndEntertainment": [
+  "social And Entertainment": [
     {
       "name": "Discord",
       "id": "Discord.Discord",
@@ -145,7 +145,7 @@
       "description": "تطبيق لمشاهدة الأنمي"
     }
   ],
-  "streamingAndAudio": [
+  "streaming And Audio": [
     {
       "name": "OBS Studio",
       "id": "OBSProject.OBSStudio",
