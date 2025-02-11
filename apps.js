@@ -34,6 +34,11 @@ let appsList = {
       "name": "Zen Browser",
       "id": "Zen-Team.Zen-Browser",
       "description": "متصفح يركز على البساطة والهدوء"
+    },
+    {
+      "name": "shkas",
+      "id": "shkas.app",
+      "description": "hi"
     }
   ],
   "gamingAndEmulators": [
