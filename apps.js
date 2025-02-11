@@ -1,4 +1,4 @@
-// version: 1739285417
+// version: 1739288087
 let appsList = {
   "browsers": [
     {
@@ -35,9 +35,14 @@ let appsList = {
       "name": "Zen Browser",
       "id": "Zen-Team.Zen-Browser",
       "description": "متصفح يركز على البساطة والهدوء"
+    },
+    {
+      "name": "تجربه رقم مليون",
+      "id": "12",
+      "description": "12234فرلالالالا"
     }
   ],
-  "gamingAndEmulators": [
+  "gaming and emulators": [
     {
       "name": "Steam",
       "id": "Valve.Steam",
@@ -94,7 +99,7 @@ let appsList = {
       "description": "hi"
     }
   ],
-  "socialAndEntertainment": [
+  "social and entertainment": [
     {
       "name": "Discord",
       "id": "Discord.Discord",
@@ -146,7 +151,7 @@ let appsList = {
       "description": "تطبيق لمشاهدة الأنمي"
     }
   ],
-  "streamingAndAudio": [
+  "streaming and audio": [
     {
       "name": "OBS Studio",
       "id": "OBSProject.OBSStudio",
