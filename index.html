@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة تحميل التطبيقات</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- القسم الرئيسي الجديد -->
+    <section id="heroSection" class="hero-section">
+        <div class="hero-content">
+            <h1>منصة تحميل التطبيقات</h1>
+            <p class="hero-description">
+                طريقة سهلة وسريعة لتثبيت برامجك المفضلة على ويندوز باستخدام Winget
+            </p>
+            
+            <div class="info-cards">
+                <div class="info-card">
+                    <span class="info-icon">🚀</span>
+                    <h3>ما هو Winget؟</h3>
+                    <p>مدير حزم رسمي من مايكروسوفت لتثبيت البرامج بأمان وسرعة عبر سطر الأوامر</p>
+                </div>
+                <div class="info-card">
+                    <span class="info-icon">💡</span>
+                    <h3>كيف يعمل؟</h3>
+                    <p>حدد البرامج التي تريدها، وسنقوم بإنشاء سكربت تثبيت تلقائي لها</p>
+                </div>
+                <div class="info-card">
+                    <span class="info-icon">✨</span>
+                    <h3>لماذا نستخدمه؟</h3>
+                    <p>توفير الوقت والجهد في تثبيت البرامج، مع ضمان تحميلها من مصادرها الرسمية</p>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <span>اختر برامجك المفضلة</span>
+                <div class="scroll-arrow">↓</div>
+            </div>
+        </div>
+
+        <!-- إضافة الخلفية التفاعلية -->
+        <div class="hero-background">
+            <div class="floating-icons">
+                <span>🖥️</span>
+                <span>⚡</span>
+                <span>📱</span>
+                <span>🔧</span>
+                <span>🎮</span>
+                <span>🎨</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التحديد -->
+    <main id="selectionSection" class="selection-section">
+        <!-- إضافة الخلفية التفاعلية -->
+        <div class="section-background">
+            <div class="floating-icons">
+                <span>💻</span>
+                <span>🎮</span>
+                <span>📱</span>
+                <span>🔧</span>
+                <span>🎨</span>
+                <span>⚙️</span>
+                <span>🔍</span>
+                <span>📦</span>
+            </div>
+        </div>
+        <!-- قسم البحث -->
+        <div class="search-section">
+            <div class="grid"></div>
+            <div id="poda">
+                <div class="glow"></div>
+                <div class="darkBorderBg"></div>
+                <div class="darkBorderBg"></div>
+                <div class="darkBorderBg"></div>
+                <div class="white"></div>
+                <div class="border"></div>
+                <div id="main">
+                    <input placeholder="ابحث عن التطبيقات..." type="text" name="text" class="input" id="searchInput"/>
+                    <div id="input-mask"></div>
+                    <div id="pink-mask"></div>
+                    <div class="filterBorder"></div>
+                    <div id="filter-icon">
+                        <svg preserveAspectRatio="none" height="27" width="27" viewBox="4.8 4.56 14.832 15.408" fill="none">
+                            <path d="M8.16 6.65002H15.83C16.47 6.65002 16.99 7.17002 16.99 7.81002V9.09002C16.99 9.56002 16.7 10.14 16.41 10.43L13.91 12.64C13.56 12.93 13.33 13.51 13.33 13.98V16.48C13.33 16.83 13.1 17.29 12.81 17.47L12 17.98C11.24 18.45 10.2 17.92 10.2 16.99V13.91C10.2 13.5 9.97 12.98 9.73 12.69L7.52 10.36C7.23 10.08 7 9.55002 7 9.20002V7.87002C7 7.17002 7.52 6.65002 8.16 6.65002Z" stroke="#d6d6e6" stroke-width="1" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                    <div id="search-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" height="24" fill="none" class="feather feather-search">
+                            <circle stroke="url(#search)" r="8" cy="11" cx="11"></circle>
+                            <line stroke="url(#searchl)" y2="16.65" y1="22" x2="16.65" x1="22"></line>
+                            <defs>
+                                <linearGradient gradientTransform="rotate(50)" id="search">
+                                    <stop stop-color="#f8e7f8" offset="0%"></stop>
+                                    <stop stop-color="#b6a9b7" offset="50%"></stop>
+                                </linearGradient>
+                                <linearGradient id="searchl">
+                                    <stop stop-color="#b6a9b7" offset="0%"></stop>
+                                    <stop stop-color="#837484" offset="50%"></stop>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم التصنيفات المعدل -->
+        <div class="categories-container">
+            <button class="category-btn active" data-category="all">الكل</button>
+            <button class="category-btn" data-category="browsers">المتصفحات</button>
+            <button class="category-btn" data-category="gamingAndEmulators">منصات الألعاب والمحاكيات</button>
+            <button class="category-btn" data-category="socialAndEntertainment">التواصل والترفيه</button>
+            <button class="category-btn" data-category="streamingAndAudio">البث والأصوات</button>
+            <button class="category-btn" data-category="programming">البرمجة</button>
+            <button class="category-btn" data-category="hardware">العتاد</button>
+            <button class="category-btn" data-category="utility">الأدوات</button>
+        </div>
+
+        <!-- قسم عرض التطبيقات -->
+        <div class="apps-container">
+            <!-- سيتم إضافة البطاقات ديناميكياً عبر JavaScript -->
+        </div>
+
+        <div class="download-button-container">
+            <button class="button" type="button" id="generateScript">
+                <span class="button__text">إنشاء سكربت التثبيت</span>
+                <span class="button__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35" id="bdd05811-e15d-428c-bb53-8661459f9307" data-name="Layer 2" class="svg">
+                        <path d="M17.5,22.131a1.249,1.249,0,0,1-1.25-1.25V2.187a1.25,1.25,0,0,1,2.5,0V20.881A1.25,1.25,0,0,1,17.5,22.131Z"></path>
+                        <path d="M17.5,22.693a3.189,3.189,0,0,1-2.262-.936L8.487,15.006a1.249,1.249,0,0,1,1.767-1.767l6.751,6.751a.7.7,0,0,0,.99,0l6.751-6.751a1.25,1.25,0,0,1,1.768,1.767l-6.752,6.751A3.191,3.191,0,0,1,17.5,22.693Z"></path>
+                        <path d="M31.436,34.063H3.564A3.318,3.318,0,0,1,.25,30.749V22.011a1.25,1.25,0,0,1,2.5,0v8.738a.815.815,0,0,0,.814.814H31.436a.815.815,0,0,0,.814-.814V22.011a1.25,1.25,0,1,1,2.5,0v8.738A3.318,3.318,0,0,1,31.436,34.063Z"></path>
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </main>
+
+    <!-- قسم السكربت -->
+    <section id="scriptSection" class="hidden-section">
+        <div class="section-background">
+            <div class="floating-icons terminal-icons">
+                <span>⌨️</span>
+                <span>🖥️</span>
+                <span>🔧</span>
+                <span>💻</span>
+                <span>📝</span>
+                <span>⚡</span>
+            </div>
+        </div>
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <span class="terminal-title">CMD</span>
+            </div>
+            
+            <div class="terminal-body">
+                <pre class="script-output" dir="ltr"></pre>
+            </div>
+            
+            <div class="terminal-controls">
+                <button class="term-btn copy-btn">
+                    <span class="btn-icon">⎘</span>
+                    <span class="btn-text">نسخ</span>
+                </button>
+                <button class="term-btn save-btn">
+                    <span class="btn-icon">⭳</span>
+                    <span class="btn-text">حفظ</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- زر العودة الثابت -->
+    <button class="global-back-btn">
+        <span class="btn-icon">→</span>
+        <span class="btn-text">العودة</span>
+    </button>
+
+    <script src="apps.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,1284 @@
+/* إضافة الخلفية والتنسيق الأساسي */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: white;
+    position: relative;
+    overflow-x: hidden;
+    background-color: #0a0f18;
+    overflow-y: auto;
+    height: 100%;
+}
+
+/* إضافة الخلفية التفاعلية - نمط الدوائر المتصلة */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(to bottom right, transparent 30%, rgba(33, 113, 205, 0.05) 45%, transparent 60%),
+        radial-gradient(2px 2px at 20px 30px, rgba(74, 144, 226, 0.15) 50%, transparent 50%),
+        radial-gradient(2px 2px at 40px 70px, rgba(74, 144, 226, 0.1) 50%, transpa  rent 50%),
+        radial-gradient(2px 2px at 60px 110px, rgba(74, 144, 226, 0.15) 50%, transparent 50%),
+        radial-gradient(2px 2px at 80px 150px, rgba(74, 144, 226, 0.1) 50%, transparent 50%);
+    background-size: 100% 100%, 150px 150px, 150px 150px, 150px 150px, 150px 150px;
+    animation: moveBackground 15s linear infinite;
+    z-index: -1;
+}
+
+/* إضافة خطوط الاتصال */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(45deg, transparent 48%, rgba(74, 144, 226, 0.05) 50%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(74, 144, 226, 0.05) 50%, transparent 52%);
+    background-size: 100px 100px;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0% 0%, 0 0, 0 0, 0 0, 0 0;
+    }
+    100% {
+        background-position: 100% 100%, 150px 150px, 150px 150px, 150px 150px, 150px 150px;
+    }
+}
+
+/* تعريف الحركات */
+@keyframes gridMove {
+    0% {
+        transform: perspective(500px) rotateX(60deg) translateY(0);
+    }
+    100% {
+        transform: perspective(500px) rotateX(60deg) translateY(50px);
+    }
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* تحسين تأثير الخلفية على الشاشات الصغيرة */
+@media (max-width: 768px) {
+    body::before {
+        background-size: 100% 100%, 100px 100px, 100px 100px, 100px 100px, 100px 100px;
+    }
+    body::after {
+        background-size: 50px 50px;
+    }
+}
+
+/* حذف عنصر grid */
+.grid {
+    display: none;
+}
+
+/* تعديل قسم البحث */
+.search-section {
+    height: 15vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+/* إضافة تأثير تدرج شفاف للقسم العلوي */
+.search-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        rgba(10, 15, 24, 0.3),
+        rgba(10, 15, 24, 0.1)
+    );
+    z-index: -1;
+}
+
+/* محرك البحث */
+.white,
+.border,
+.darkBorderBg {
+    display: none;
+}
+
+.input {
+    background-color: #0a1929;
+    border: 1px solid #2171cd;
+    width: 300px;
+    height: 45px;
+    border-radius: 10px;
+    color: white;
+    padding: 0 20px;
+    font-size: 15px;
+    position: relative;
+    z-index: 1;
+    text-align: right;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+#poda {
+    position: static;
+    transform: none;
+}
+
+.input::placeholder {
+    color: #8b9cb3;
+}
+
+.input:focus {
+    outline: none;
+    border: 1px solid #4a90e2;
+    box-shadow: 0 0 10px rgba(74, 144, 226, 0.8);
+}
+
+.white::before {
+    content: "";
+    z-index: -2;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    filter: brightness(3);
+    background-image: conic-gradient(
+        rgba(0, 0, 0, 0) 0%,
+        #4a90e2 2%,
+        #4a90e2 8%,
+        rgba(0, 0, 0, 0) 10%,
+        rgba(0, 0, 0, 0) 25%,
+        #2171cd 27%,
+        #2171cd 31%,
+        rgba(0, 0, 0, 0) 33%,
+        rgba(0, 0, 0, 0) 50%,
+        #4a90e2 52%,
+        #4a90e2 56%,
+        rgba(0, 0, 0, 0) 58%,
+        rgba(0, 0, 0, 0) 75%,
+        #2171cd 77%,
+        #2171cd 81%,
+        rgba(0, 0, 0, 0) 83%
+    );
+    transition: all 2s;
+}
+
+.border::before {
+    content: "";
+    z-index: -2;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    filter: brightness(3);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-image: conic-gradient(
+        #0a1929,
+        #2171cd 2%,
+        #2171cd 6%,
+        #0a1929 8%,
+        #0a1929 25%,
+        #4a90e2 27%,
+        #4a90e2 31%,
+        #0a1929 33%,
+        #0a1929 50%,
+        #2171cd 52%,
+        #2171cd 56%,
+        #0a1929 58%,
+        #0a1929 75%,
+        #4a90e2 77%,
+        #4a90e2 81%,
+        #0a1929 83%
+    );
+    transition: all 2s;
+}
+
+/* تعديل كونتينر التصنيفات */
+.categories-container {
+    width: 80%;
+    margin: 0 auto 1rem auto;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+/* تعديل تنسيق أزرار التصنيفات */
+.category-btn {
+    padding: 0.8em 1.5em;
+    border: 2px solid var(--color-all);
+    border-radius: 0.75rem;
+    color: var(--color-all);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    box-shadow: 0 0.3125rem 0.9375rem rgba(0,0,0,0.2);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* تنسيق ألوان أزرار التصنيفات */
+.category-btn[data-category="all"] {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.category-btn[data-category="browsers"] {
+    border-color: var(--color-browsers);
+    color: var(--color-browsers);
+}
+
+.category-btn[data-category="gamingAndEmulators"] {
+    border-color: var(--color-gaming);
+    color: var(--color-gaming);
+}
+
+.category-btn[data-category="socialAndEntertainment"] {
+    border-color: var(--color-communication);
+    color: var(--color-communication);
+}
+
+.category-btn[data-category="streamingAndAudio"] {
+    border-color: var(--color-entertainment);
+    color: var(--color-entertainment);
+}
+
+.category-btn[data-category="programming"] {
+    border-color: var(--color-programming);
+    color: var(--color-programming);
+}
+
+.category-btn[data-category="hardware"] {
+    border-color: var(--color-hardware);
+    color: var(--color-hardware);
+}
+
+.category-btn[data-category="utility"] {
+    border-color: var(--color-utility);
+    color: var(--color-utility);
+}
+
+.category-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    filter: brightness(1.1);
+}
+
+/* تنسيق الزر النشط */
+.category-btn.active {
+    background-color: currentColor !important;
+    color: white !important;
+}
+
+.category-btn[data-category="all"].active {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.category-btn[data-category="browsers"].active {
+    background-color: var(--color-browsers) !important;
+}
+
+.category-btn[data-category="gamingAndEmulators"].active {
+    background-color: var(--color-gaming) !important;
+}
+
+.category-btn[data-category="socialAndEntertainment"].active {
+    background-color: var(--color-communication) !important;
+}
+
+.category-btn[data-category="streamingAndAudio"].active {
+    background-color: var(--color-entertainment) !important;
+}
+
+.category-btn[data-category="programming"].active {
+    background-color: var(--color-programming) !important;
+}
+
+.category-btn[data-category="hardware"].active {
+    background-color: var(--color-hardware) !important;
+}
+
+.category-btn[data-category="utility"].active {
+    background-color: var(--color-utility) !important;
+}
+
+/* تعديل كونتينر البطاقات */
+.apps-container {
+    width: 80%;
+    margin: 0.5rem auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.2rem;
+    max-height: 450px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 1rem;
+    border: 1px solid rgba(74, 144, 226, 0.3);
+    position: relative;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 2;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* تخصيص شريط التمرير */
+.apps-container::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+.apps-container::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 0.25rem;
+}
+
+.apps-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(145deg, #2171cd, #4a90e2);
+    border-radius: 0.25rem;
+}
+
+/* تعريف الألوان لكل فئة - ألوان داكنة ومريحة */
+:root {
+    --color-all: #6c757d;
+    --color-browsers: #2196F3;
+    --color-gaming: #E91E63;
+    --color-communication: #4CAF50;
+    --color-entertainment: #FF9800;
+    --color-programming: #5352ED;
+    --color-security: #F44336;
+    --color-utility: #00B894;  /* تغيير لون الأدوات إلى أصفر */
+    --color-productivity: #4f4a2d;  /* ذهبي داكن */
+    --color-design: #4f2d44;        /* وردي داكن */
+    --color-hardware: #00BCD4;  /* تغيير لون العتاد إلى أزرق سماوي */
+}
+
+/* تعديل بطاقات التطبيقات */
+.app-card {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    padding: 1.2rem;
+    border-radius: 1rem;
+    overflow: visible;
+    transition: all 0.3s ease;
+    background: linear-gradient(145deg, rgba(108, 117, 125, 0.2), rgba(108, 117, 125, 0.1));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+/* تطبيق الألوان حسب الفئة */
+.app-card[data-category="browsers"] {
+    background: linear-gradient(145deg, rgba(33, 150, 243, 0.2), rgba(33, 150, 243, 0.1));
+}
+
+.app-card[data-category="gamingAndEmulators"] {
+    background: linear-gradient(145deg, rgba(233, 30, 99, 0.2), rgba(233, 30, 99, 0.1));
+}
+
+.app-card[data-category="socialAndEntertainment"] {
+    background: linear-gradient(145deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.1));
+}
+
+.app-card[data-category="streamingAndAudio"] {
+    background: linear-gradient(145deg, rgba(255, 152, 0, 0.2), rgba(255, 152, 0, 0.1));
+}
+
+.app-card[data-category="programming"] {
+    background: linear-gradient(145deg, rgba(83, 82, 237, 0.2), rgba(83, 82, 237, 0.1));
+}
+
+.app-card[data-category="hardware"] {
+    background: linear-gradient(145deg, rgba(0, 188, 212, 0.2), rgba(0, 188, 212, 0.1));
+}
+
+.app-card[data-category="utility"] {
+    background: linear-gradient(145deg, rgba(0, 184, 148, 0.2), rgba(0, 184, 148, 0.1));
+}
+
+/* تأثير التحويم */
+.app-card[data-category="browsers"]:hover {
+    background: linear-gradient(145deg, rgba(33, 150, 243, 0.3), rgba(33, 150, 243, 0.2));
+}
+
+.app-card[data-category="gamingAndEmulators"]:hover {
+    background: linear-gradient(145deg, rgba(233, 30, 99, 0.3), rgba(233, 30, 99, 0.2));
+}
+
+.app-card[data-category="socialAndEntertainment"]:hover {
+    background: linear-gradient(145deg, rgba(76, 175, 80, 0.3), rgba(76, 175, 80, 0.2));
+}
+
+.app-card[data-category="streamingAndAudio"]:hover {
+    background: linear-gradient(145deg, rgba(255, 152, 0, 0.3), rgba(255, 152, 0, 0.2));
+}
+
+.app-card[data-category="programming"]:hover {
+    background: linear-gradient(145deg, rgba(83, 82, 237, 0.3), rgba(83, 82, 237, 0.2));
+}
+
+.app-card[data-category="hardware"]:hover {
+    background: linear-gradient(145deg, rgba(0, 188, 212, 0.3), rgba(0, 188, 212, 0.2));
+}
+
+.app-card[data-category="utility"]:hover {
+    background: linear-gradient(145deg, rgba(0, 184, 148, 0.3), rgba(0, 184, 148, 0.2));
+}
+
+/* تعديل محتوى البطاقة */
+.app-card-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+    padding-top: 0.5rem;
+}
+
+/* تنسيق اسم التطبيق */
+.app-card h3 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: white;
+    text-align: center;
+}
+
+/* تنسيق وصف التطبيق */
+.app-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* عند تحديد البطاقة نجعل overflow: visible */
+.app-card.selected {
+    transform: scale(0.98);
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+}
+
+/* تعديل علامة التحديد */
+.app-card.selected::after {
+    content: '✓';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 2;
+    background: var(--color-all);
+    pointer-events: none;
+}
+
+/* تخصيص لون علامة التحديد حسب الفئة */
+.app-card.selected[data-category="browsers"]::after {
+    background: var(--color-browsers);
+}
+
+.app-card.selected[data-category="gaming"]::after {
+    background: var(--color-gaming);
+}
+
+.app-card.selected[data-category="communication"]::after {
+    background: var(--color-communication);
+}
+
+.app-card.selected[data-category="entertainment"]::after {
+    background: var(--color-entertainment);
+}
+
+.app-card.selected[data-category="programming"]::after {
+    background: var(--color-programming);
+}
+
+.app-card.selected[data-category="security"]::after {
+    background: var(--color-security);
+}
+
+.app-card.selected[data-category="hardware"]::after {
+    background: var(--color-hardware);
+}
+
+/* تحديث لون علامة التحديد */
+.app-card.selected[data-category="utility"]::after {
+    background: var(--color-utility);
+}
+
+/* إدارة الأقسام */
+.hidden-section {
+    display: none;
+    opacity: 0;
+}
+
+.active-section {
+    display: block;
+    opacity: 1;
+}
+
+/* قسم التحديد الرئيسي */
+#selectionSection.active-section {
+    height: 100vh;
+    padding: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* قسم السكربت */
+#scriptSection.active-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0a0f18;
+    z-index: 100;
+}
+
+/* تصميم نافذة حديثة */
+.terminal-window {
+    width: 800px;
+    background: #1A1A1A;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    overflow: hidden;
+    border: 1px solid #3A3A3A;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-header {
+    background: #2D2D2D;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #3A3A3A;
+    position: relative;
+    justify-content: center;
+}
+
+.terminal-title {
+    color: #D6D6D6;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.terminal-body {
+    flex: 1;
+    min-height: 300px;
+    max-height: 500px;
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.script-output {
+    color: #00FF9D;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    margin: 0;
+    text-shadow: 0 0 8px rgba(0,255,157,0.2);
+}
+
+.terminal-controls {
+    background: #252525;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    border-top: 1px solid #3A3A3A;
+    margin-top: auto;
+}
+
+.term-btn {
+    background: #3A3A3A;
+    color: #00FF9D;
+    border: 1px solid #4D4D4D;
+    padding: 12px 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;
+    width: 160px;
+    position: relative;
+    overflow: hidden;
+}
+
+.term-btn .btn-text {
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.term-btn .btn-icon {
+    position: absolute;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    transform: translateX(20px);
+}
+
+.term-btn:hover .btn-text {
+    opacity: 0;
+}
+
+.term-btn:hover .btn-icon {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.term-btn:hover {
+    background: #4D4D4D;
+    border-color: #00FF9D;
+}
+
+/* تأثير المؤشر الوامض */
+.script-output::after {
+    content: "_";
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.term-btn.back-btn {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 8px 20px;
+    background: #3A3A3A;
+    border: 1px solid #4D4D4D;
+}
+
+.global-back-btn {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    background: #0a1929;
+    color: #00FF9D;
+    border: 2px solid #00FF9D;
+    padding: 12px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    align-items: center;
+    gap: 12px;
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: none;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.global-back-btn:hover {
+    background: #00FF9D;
+    color: #0a1929;
+    transform: translateX(-5px);
+}
+
+#scriptSection.active-section ~ .global-back-btn {
+    display: flex;
+}
+
+/* تنسيق شريط التمرير في نافذة السكربت */
+.terminal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+    background: #1A1A1A;
+    border-radius: 4px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+    background: #00FF9D;
+    border-radius: 4px;
+    opacity: 0.8;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+    background: #00CC7D;
+}
+
+/* تعديل زر إنشاء السكربت */
+.download-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    margin-top: 1rem;
+}
+
+/* تعديل زر إنشاء السكربت */
+.button {
+    background: #0a1929;
+    color: #4a90e2;
+    border: 1px solid #2171cd;
+    padding: 12px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+    min-width: 250px;
+}
+
+/* إخفاء الأيقونة */
+.button .button__icon {
+    display: none;
+}
+
+/* تعديل موضع زر إنشاء السكربت */
+#generateScript {
+    position: relative;
+    top: -20px;
+}
+
+/* تحسين التجاوب */
+@media (max-width: 1400px) {
+    .apps-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1100px) {
+    .apps-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .apps-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* تنسيق عناصر البحث */
+#main {
+    position: relative;
+}
+
+#search-icon,
+#input-mask,
+#pink-mask,
+#filter-icon,
+.filterBorder,
+.glow {
+    display: none;
+}
+
+/* تنسيق الصورة الافتراضية */
+.default-app-image {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #2171cd, #4a90e2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* تنسيق أيقونات الفئات */
+.category-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.9;
+    filter: brightness(0.9) saturate(1.2);
+}
+
+/* تنسيق أزرار نافذة السكربت */
+.term-btn {
+    background: #3A3A3A;
+    color: #00FF9D;
+    border: 1px solid #4D4D4D;
+    padding: 12px 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;
+    width: 160px;
+    position: relative;
+    overflow: hidden;
+}
+
+.term-btn .btn-text {
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.term-btn .btn-icon {
+    position: absolute;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    transform: translateX(20px);
+}
+
+.term-btn:hover .btn-text {
+    opacity: 0;
+}
+
+.term-btn:hover .btn-icon {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.term-btn:hover {
+    background: #4D4D4D;
+    border-color: #00FF9D;
+}
+
+/* تنسيق أيقونات الأزرار */
+.copy-btn .btn-icon {
+    content: "⎘";
+}
+
+.save-btn .btn-icon {
+    content: "⭳";
+}
+
+/* تنسيق القسم الرئيسي */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(145deg, #0a1929, #0d1b2a);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 1000px;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #4a90e2, #2171cd);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.hero-description {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 4rem;
+}
+
+/* تنسيق البطاقات المعلوماتية */
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(74, 144, 226, 0.3);
+}
+
+.info-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.info-card h3 {
+    color: #4a90e2;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.info-card p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* تحسين خلفية القسم */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.floating-icons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.floating-icons span {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.1;
+    animation: float 20s linear infinite;
+}
+
+.floating-icons span:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+.floating-icons span:nth-child(2) { top: 20%; left: 80%; animation-delay: -5s; }
+.floating-icons span:nth-child(3) { top: 60%; left: 20%; animation-delay: -10s; }
+.floating-icons span:nth-child(4) { top: 80%; left: 70%; animation-delay: -15s; }
+.floating-icons span:nth-child(5) { top: 40%; left: 40%; animation-delay: -7s; }
+.floating-icons span:nth-child(6) { top: 70%; left: 30%; animation-delay: -12s; }
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.1;
+    }
+    25% {
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(100px, 100px) rotate(180deg);
+        opacity: 0.1;
+    }
+    75% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+        opacity: 0.1;
+    }
+}
+
+/* تعديل القسم الثاني */
+.selection-section {
+    min-height: 100vh;
+    padding: 2rem 0;
+    background-color: #0a0f18;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* إضافة تأثير السكرول السلس */
+html {
+    scroll-behavior: smooth;
+}
+
+/* تنسيق الأقسام الرئيسية */
+.hero-section,
+.selection-section {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.hero-section {
+    z-index: 2;
+    transform: translateY(0);
+}
+
+.selection-section {
+    z-index: 1;
+    transform: translateY(100%);
+    background-color: #0a0f18;
+}
+
+/* عند التمرير */
+.scrolled .hero-section {
+    transform: translateY(-100%);
+}
+
+.scrolled .selection-section {
+    transform: translateY(0);
+}
+
+/* إضافة تأثير التلاشي للمحتوى */
+.hero-content,
+.selection-section > * {
+    transition: opacity 0.5s ease;
+}
+
+.scrolled .hero-content {
+    opacity: 0;
+}
+
+.scrolled .selection-section > * {
+    opacity: 1;
+}
+
+/* إزالة السكرول من body */
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* خلفية القسم الرئيسي */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(145deg, #0a1929, #0d1b2a),
+        radial-gradient(circle at 20% 30%, rgba(74, 144, 226, 0.15) 0%, transparent 70%),
+        radial-gradient(circle at 80% 70%, rgba(33, 113, 205, 0.15) 0%, transparent 70%);
+    z-index: 0;
+}
+
+/* خلفية قسم التطبيقات */
+.selection-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(145deg, #0a0f18, #0d1423),
+        radial-gradient(2px 2px at 20px 30px, rgba(74, 144, 226, 0.15) 50%, transparent 50%),
+        radial-gradient(2px 2px at 40px 70px, rgba(74, 144, 226, 0.1) 50%, transparent 50%),
+        radial-gradient(2px 2px at 60px 110px, rgba(74, 144, 226, 0.15) 50%, transparent 50%),
+        radial-gradient(2px 2px at 80px 150px, rgba(74, 144, 226, 0.1) 50%, transparent 50%);
+    background-size: 100% 100%, 150px 150px, 150px 150px, 150px 150px, 150px 150px;
+    animation: moveBackground 15s linear infinite;
+    z-index: -1;
+}
+
+/* خلفية قسم السكربت */
+.terminal-window::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(145deg, #1A1A1A, #2D2D2D),
+        radial-gradient(circle at 10% 20%, rgba(0, 255, 157, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(0, 255, 157, 0.05) 0%, transparent 50%);
+    z-index: -1;
+    border-radius: 12px;
+}
+
+/* تحسين الأيقونات العائمة لكل قسم */
+.selection-section .floating-icons span {
+    position: fixed;
+    font-size: 2rem;
+    opacity: 0.05;
+    animation: float 20s linear infinite;
+    filter: blur(1px);
+    z-index: 1;
+}
+
+.terminal-window .floating-icons span {
+    color: #00FF9D;
+    opacity: 0.03;
+}
+
+/* تحسين حركة الخلفية */
+@keyframes moveBackground {
+    0% {
+        background-position: 0% 0%, 0 0, 0 0, 0 0, 0 0;
+    }
+    100% {
+        background-position: 100% 100%, 150px 150px, 150px 150px, 150px 150px, 150px 150px;
+    }
+}
+
+/* إضافة تأثير الضباب للخلفيات */
+.hero-section,
+.selection-section,
+.terminal-window {
+    backdrop-filter: blur(10px);
+}
+
+/* تحسين الانتقال بين الأقسام */
+.hero-section,
+.selection-section,
+.terminal-window {
+    transition: all 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+/* تنسيق خلفيات الأقسام */
+.section-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* تنسيق الأيقونات العائمة لقسم التطبيقات */
+.selection-section .floating-icons span:nth-child(1) { top: 5%; left: 5%; }
+.selection-section .floating-icons span:nth-child(2) { top: 15%; right: 5%; }
+.selection-section .floating-icons span:nth-child(3) { bottom: 15%; left: 5%; }
+.selection-section .floating-icons span:nth-child(4) { bottom: 5%; right: 5%; }
+.selection-section .floating-icons span:nth-child(5) { top: 50%; left: 3%; }
+.selection-section .floating-icons span:nth-child(6) { top: 50%; right: 3%; }
+.selection-section .floating-icons span:nth-child(7) { bottom: 30%; left: 8%; }
+.selection-section .floating-icons span:nth-child(8) { top: 30%; right: 8%; }
+
+/* تنسيق الأيقونات العائمة لقسم السكربت */
+.terminal-icons span {
+    position: absolute;
+    font-size: 1.8rem;
+    opacity: 0.03;
+    color: #00FF9D;
+    animation: terminalFloat 15s linear infinite;
+    filter: blur(1px);
+}
+
+/* توزيع الأيقونات في قسم السكربت */
+.terminal-icons span:nth-child(1) { top: 15%; left: 15%; animation-delay: 0s; }
+.terminal-icons span:nth-child(2) { top: 25%; left: 85%; animation-delay: -4s; }
+.terminal-icons span:nth-child(3) { top: 55%; left: 25%; animation-delay: -8s; }
+.terminal-icons span:nth-child(4) { top: 75%; left: 80%; animation-delay: -12s; }
+.terminal-icons span:nth-child(5) { top: 35%; left: 45%; animation-delay: -16s; }
+.terminal-icons span:nth-child(6) { top: 85%; left: 35%; animation-delay: -20s; }
+
+/* حركة الأيقونات في قسم السكربت */
+@keyframes terminalFloat {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.02;
+    }
+    25% {
+        opacity: 0.04;
+    }
+    50% {
+        transform: translate(50px, 50px) rotate(180deg);
+        opacity: 0.02;
+    }
+    75% {
+        opacity: 0.04;
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+        opacity: 0.02;
+    }
+}
+
+/* تنسيق علامة الصح */
+.app-card .checkmark {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    z-index: 2;
+}
+
+/* إضافة في نهاية الملف */
+.admin-container {
+    position: relative;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.admin-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 15, 24, 0.95);
+    z-index: -1;
+} 
