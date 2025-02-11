@@ -304,4 +304,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-}); 
+});
+
+// تحديث أي استخدام للتصنيفات في الكود
+function filterApps(category) {
+    if (category === 'all') {
+        // ...
+    } else {
+        apps = appsList[category] || [];
+    }
+    // ...
+} 
