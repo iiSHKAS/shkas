@@ -130,11 +130,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // إعداد أزرار السكربت
-    const generateScriptBtn = document.getElementById('generateScript');
-    if (generateScriptBtn) {
-        generateScriptBtn.addEventListener('click', generateScript);
+    // إضافة مستمع لحدث popstate
+    window.addEventListener('popstate', handleNavigationChange);
+
+    // تهيئة الحالة الأولية
+    if (!window.location.hash) {
+        history.replaceState({ page: 'selection' }, '', '#selection');
+    } else {
+        handleNavigationChange();
     }
+
+    // مستمع لزر إنشاء السكربت
+    document.getElementById('generateScript').addEventListener('click', function() {
+        showScriptSection();
+        history.pushState({ page: 'script' }, '', '#script');
+    });
+
+    // مستمعات لأزرار العودة
+    document.querySelector('.top-back-btn').addEventListener('click', handleBackClick);
+    document.querySelector('.global-back-btn').addEventListener('click', handleBackClick);
 
     // إضافة مستمع حدث لزر الرجوع العلوي
     const topBackBtn = document.querySelector('.top-back-btn');
@@ -163,6 +177,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+function handleBackClick() {
+    showSelectionSection();
+    history.pushState({ page: 'selection' }, '', '#selection');
+}
+
+function handleNavigationChange() {
+    const hash = window.location.hash;
+    if (hash === '#script') {
+        showScriptSection();
+    } else {
+        showSelectionSection();
+    }
+}
+
+function showScriptSection() {
+    document.getElementById('heroSection').classList.add('hidden-section');
+    document.getElementById('selectionSection').classList.add('hidden-section');
+    document.getElementById('scriptSection').classList.remove('hidden-section');
+    document.querySelector('.global-back-btn').classList.add('hidden-section');
+    
+    // توليد السكربت عند الانتقال إلى قسم السكربت
+    generateScript();
+}
+
+function showSelectionSection() {
+    document.getElementById('heroSection').classList.remove('hidden-section');
+    document.getElementById('selectionSection').classList.remove('hidden-section');
+    document.getElementById('scriptSection').classList.add('hidden-section');
+    document.querySelector('.global-back-btn').classList.add('hidden-section');
+}
 
 // إضافة تأثيرات CSS
 const style = document.createElement('style');
@@ -277,7 +322,10 @@ function generateScript() {
         }
     });
     
-    showScript(script);
+    const scriptOutput = document.querySelector('.script-output');
+    if (scriptOutput) {
+        scriptOutput.textContent = script;
+    }
 }
 
 function getPackageId(appName) {
