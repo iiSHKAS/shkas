@@ -1,4 +1,4 @@
-// version: 1739469260
+// version: 1739469370
 let appsList = {
   "browsers": [
     {
@@ -40,7 +40,8 @@ let appsList = {
     {
       "name": "Google Chrome",
       "id": "Google.Chrome",
-      "description": "متصفح سريع وآمن من Google"
+      "description": "متصفح سريع وآمن من Google",
+      "image": "https://raw.githubusercontent.com/alrra/browser-logos/main/src/chrome/chrome.svg"
     }
   ],
   "gaming and emulators": [
