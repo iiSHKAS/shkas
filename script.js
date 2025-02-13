@@ -1,16 +1,15 @@
 const storedApps = JSON.parse(localStorage.getItem('apps')) || {};
 const apps = mergeApps(appsList, storedApps);
 
-// تعريف الأيقونات الافتراضية لكل فئة
-const defaultIcons = {
-    browsers: "https://cdn-icons-png.flaticon.com/512/2807/2807714.png",
-    gaming: "https://cdn-icons-png.flaticon.com/512/1374/1374723.png",
-    programming: "https://cdn-icons-png.flaticon.com/512/1005/1005141.png",
-    communication: "https://cdn-icons-png.flaticon.com/512/2343/2343805.png",
-    entertainment: "https://cdn-icons-png.flaticon.com/512/2991/2991195.png",
-    utility: "https://cdn-icons-png.flaticon.com/512/4149/4149677.png",
-    security: "https://cdn-icons-png.flaticon.com/512/2888/2888702.png",
-    hardware: "https://cdn-icons-png.flaticon.com/512/3659/3659899.png",
+// إضافة كائن يحتوي على الأيقونات الافتراضية لكل تصنيف
+const defaultCategoryIcons = {
+    "browsers": "https://cdn-icons-png.flaticon.com/512/3178/3178285.png",
+    "gaming and emulators": "https://cdn-icons-png.flaticon.com/512/3097/3097980.png",
+    "social and entertainment": "https://cdn-icons-png.flaticon.com/512/2065/2065157.png",
+    "streaming and audio": "https://cdn-icons-png.flaticon.com/512/9066/9066904.png",
+    "programming": "https://cdn-icons-png.flaticon.com/512/1157/1157109.png",
+    "hardware": "https://cdn-icons-png.flaticon.com/512/3659/3659899.png",
+    "utility": "https://cdn-icons-png.flaticon.com/512/3953/3953226.png"
 };
 
 // إضافة متغير لتخزين التطبيقات المحددة
@@ -58,12 +57,16 @@ function loadApps(category = 'all', searchQuery = '') {
         card.setAttribute('data-category', app.category);
         card.dataset.appId = app.id;
 
+        // تحديد الأيقونة - استخدام الأيقونة الافتراضية للتصنيف إذا لم تكن هناك صورة للتطبيق
+        const iconSrc = app.image || defaultCategoryIcons[app.category];
+
         card.innerHTML = `
+            <div class="app-icon">
+                <img src="${iconSrc}" alt="${app.name}" onError="handleImageError(event)">
+            </div>
             <div class="app-card-content">
+                <h3>${app.name}</h3>
                 <p>${app.description}</p>
-                <div class="app-card-info">
-                    <h3>${app.name}</h3>
-                </div>
             </div>
         `;
 
@@ -85,9 +88,9 @@ function getAppImage(app) {
     if (app.image) {
         // إذا كان للبرنامج صورة خاصة
         return `<img src="${app.image}" alt="${app.name}">`;
-    } else if (defaultIcons[app.category]) {
+    } else if (defaultCategoryIcons[app.category]) {
         // إذا لم تكن هناك صورة، استخدم أيقونة الفئة
-        return `<img src="${defaultIcons[app.category]}" alt="${app.name}" class="category-icon">`;
+        return `<img src="${defaultCategoryIcons[app.category]}" alt="${app.name}" class="category-icon">`;
     } else {
         // إذا لم تتوفر أيقونة الفئة، استخدم الحرف الأول
         return `<div class="default-app-image">${app.name.charAt(0).toUpperCase()}</div>`;
@@ -133,10 +136,10 @@ document.addEventListener('DOMContentLoaded', function() {
         generateScriptBtn.addEventListener('click', generateScript);
     }
 
-    // إعداد زر العودة
-    const backBtn = document.querySelector('.global-back-btn');
-    if (backBtn) {
-        backBtn.addEventListener('click', () => {
+    // إضافة مستمع حدث لزر الرجوع العلوي
+    const topBackBtn = document.querySelector('.top-back-btn');
+    if (topBackBtn) {
+        topBackBtn.addEventListener('click', () => {
             document.getElementById('scriptSection').classList.add('hidden-section');
             document.getElementById('selectionSection').classList.remove('hidden-section');
         });
@@ -147,11 +150,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const saveBtn = document.querySelector('.save-btn');
     
     if (copyBtn) {
-        copyBtn.addEventListener('click', copyScript);
+        copyBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            copyScript();
+        });
     }
     
     if (saveBtn) {
-        saveBtn.addEventListener('click', saveScript);
+        saveBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            saveScript();
+        });
     }
 });
 
@@ -165,28 +174,85 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// إضافة الدوال الناقصة
+// إضافة الدوال الجديدة لمعالجة السكربت
+
+function showScript(script) {
+    const scriptSection = document.getElementById('scriptSection');
+    const selectionSection = document.getElementById('selectionSection');
+    const scriptOutput = document.querySelector('.script-output');
+    
+    // إظهار قسم السكربت
+    scriptSection.classList.remove('hidden-section');
+    selectionSection.classList.add('hidden-section');
+    
+    // عرض السكربت مع تأثير الكتابة
+    scriptOutput.textContent = '';
+    scriptOutput.classList.add('typing');
+    
+    let i = 0;
+    const typeScript = () => {
+        if (i < script.length) {
+            scriptOutput.textContent += script.charAt(i);
+            i++;
+            setTimeout(typeScript, 10);
+        } else {
+            scriptOutput.classList.remove('typing');
+        }
+    };
+    
+    typeScript();
+}
+
 function copyScript() {
     const scriptContent = document.querySelector('.script-output').textContent;
+    const copyBtn = document.querySelector('.copy-btn');
+    
     navigator.clipboard.writeText(scriptContent)
-        .then(() => alert('تم نسخ السكربت بنجاح!'))
-        .catch(err => console.error('فشل النسخ:', err));
+        .then(() => {
+            copyBtn.classList.add('success');
+            setTimeout(() => {
+                copyBtn.classList.remove('success');
+            }, 2000);
+        })
+        .catch(err => {
+            console.error('فشل النسخ:', err);
+            copyBtn.querySelector('.btn-text').textContent = 'فشل النسخ';
+            setTimeout(() => {
+                copyBtn.querySelector('.btn-text').textContent = 'نسخ';
+            }, 2000);
+        });
 }
 
 function saveScript() {
     const scriptContent = document.querySelector('.script-output').textContent;
-    const blob = new Blob([scriptContent], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'install-apps.bat';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    const saveBtn = document.querySelector('.save-btn');
+    
+    try {
+        const blob = new Blob([scriptContent], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'install-apps.bat';
+        
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        
+        saveBtn.classList.add('success');
+        setTimeout(() => {
+            saveBtn.classList.remove('success');
+        }, 2000);
+    } catch (err) {
+        console.error('فشل الحفظ:', err);
+        saveBtn.querySelector('.btn-text').textContent = 'فشل الحفظ';
+        setTimeout(() => {
+            saveBtn.querySelector('.btn-text').textContent = 'حفظ';
+        }, 2000);
+    }
 }
 
-// تعديل دالة generateScript لتظهر قسم السكربت
+// تحديث دالة generateScript
 function generateScript() {
     if (selectedApps.size === 0) {
         alert('الرجاء تحديد تطبيق واحد على الأقل!');
@@ -196,29 +262,22 @@ function generateScript() {
     const selectedAppsArray = Array.from(selectedApps);
     let script = '@echo off\n\n';
     
-    // تجميع كل التطبيقات المحددة
     selectedAppsArray.forEach(appId => {
-        // البحث في جميع الفئات
         for (const category in appsList) {
             const app = appsList[category].find(a => a.id === appId);
             if (app) {
-                // إضافة المتطلبات إذا وجدت
                 if (app.prerequisites && app.prerequisites.length > 0) {
                     app.prerequisites.forEach(prereq => {
                         script += `winget install -e --id ${prereq}\n`;
                     });
                 }
-                // إضافة التطبيق نفسه
                 script += `winget install -e --id ${app.id}\n`;
                 break;
             }
         }
     });
     
-    // عرض السكربت وتبديل الأقسام
-    document.querySelector('.script-output').textContent = script;
-    document.getElementById('selectionSection').classList.add('hidden-section');
-    document.getElementById('scriptSection').classList.remove('hidden-section');
+    showScript(script);
 }
 
 function getPackageId(appName) {
@@ -262,18 +321,18 @@ document.addEventListener('DOMContentLoaded', () => {
         // التحقق مما إذا كان المؤشر فوق مربع التطبيقات
         const appsContainer = document.querySelector('.apps-container');
         if (appsContainer) {
-            const rect = appsContainer.getBoundingClientRect();
-            const isOverAppsContainer = (
-                event.clientX >= rect.left &&
-                event.clientX <= rect.right &&
-                event.clientY >= rect.top &&
-                event.clientY <= rect.bottom
-            );
+        const rect = appsContainer.getBoundingClientRect();
+        const isOverAppsContainer = (
+            event.clientX >= rect.left &&
+            event.clientX <= rect.right &&
+            event.clientY >= rect.top &&
+            event.clientY <= rect.bottom
+        );
 
-            // إذا كان المؤشر فوق مربع التطبيقات، اسمح بالتمرير الطبيعي
-            if (isOverAppsContainer) {
-                event.stopPropagation();
-                return;
+        // إذا كان المؤشر فوق مربع التطبيقات، اسمح بالتمرير الطبيعي
+        if (isOverAppsContainer) {
+            event.stopPropagation();
+            return;
             }
         }
 
@@ -303,11 +362,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const scrollIndicator = document.querySelector('.scroll-indicator');
     if (scrollIndicator) {
         scrollIndicator.addEventListener('click', () => {
-            if (!isScrolled) {
-                document.body.classList.add('scrolled');
-                isScrolled = true;
-            }
-        });
+        if (!isScrolled) {
+            document.body.classList.add('scrolled');
+            isScrolled = true;
+        }
+    });
     }
 });
 
@@ -319,4 +378,22 @@ function filterApps(category) {
         apps = appsList[category] || [];
     }
     // ...
+}
+
+function createFallbackIcon(appName) {
+    const initials = appName
+        .split(' ')
+        .map(word => word[0])
+        .join('')
+        .toUpperCase()
+        .slice(0, 2);
+    
+    return `<div class="fallback-text">${initials}</div>`;
+}
+
+function handleImageError(event) {
+    const appCard = event.target.closest('.app-card');
+    const category = appCard.getAttribute('data-category');
+    const defaultIcon = defaultCategoryIcons[category];
+    event.target.src = defaultIcon;
 } 
