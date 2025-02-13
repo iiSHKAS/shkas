@@ -13,7 +13,7 @@ const defaultCategoryIcons = {
 };
 
 // إضافة متغير لتخزين التطبيقات المحددة
-let selectedApps = new Set();
+let selectedApps = new Set(JSON.parse(localStorage.getItem('selectedApps')) || []);
 
 // تحميل التطبيقات مع البحث
 function loadApps(category = 'all', searchQuery = '') {
@@ -78,6 +78,8 @@ function loadApps(category = 'all', searchQuery = '') {
             } else {
                 selectedApps.delete(app.id);
             }
+            // حفظ التحديد في localStorage
+            localStorage.setItem('selectedApps', JSON.stringify([...selectedApps]));
         });
 
         container.appendChild(card);
@@ -176,17 +178,52 @@ document.addEventListener('DOMContentLoaded', function() {
             saveScript();
         });
     }
+
+    // تأخير ظهور البطاقات
+    const cards = document.querySelectorAll('.fade-in');
+    
+    // تفعيل أنيميشن البطاقات بشكل متتالي
+    setTimeout(() => {
+        cards.forEach((card, index) => {
+            setTimeout(() => {
+                card.classList.add('active');
+            }, index * 300); // زيادة التأخير بين البطاقات
+        });
+    }, 1000); // تقليل وقت الانتظار قبل بدء ظهور البطاقات
+
+    // عند تحميل الصفحة، نقوم بتحديد البطاقات المحفوظة
+    if (window.location.hash === '#script') {
+        if (selectedApps.size > 0) {
+            showScriptSection();
+        } else {
+            window.location.hash = '#selection';
+        }
+    }
+
+    // تحديد البطاقات المحفوظة مسبقاً
+    document.querySelectorAll('.app-card').forEach(card => {
+        if (selectedApps.has(card.dataset.appId)) {
+            card.classList.add('selected');
+        }
+    });
 });
 
 function handleBackClick() {
-    showSelectionSection();
+    // تنظيف التحديد عند الضغط على زر العودة
+    clearSelection();
     history.pushState({ page: 'selection' }, '', '#selection');
+    showSelectionSection();
 }
 
 function handleNavigationChange() {
     const hash = window.location.hash;
     if (hash === '#script') {
-        showScriptSection();
+        // التحقق من وجود تطبيقات محددة قبل عرض قسم السكربت
+        if (selectedApps.size > 0) {
+            showScriptSection();
+        } else {
+            window.location.hash = '#selection';
+        }
     } else {
         showSelectionSection();
     }
@@ -207,6 +244,23 @@ function showSelectionSection() {
     document.getElementById('selectionSection').classList.remove('hidden-section');
     document.getElementById('scriptSection').classList.add('hidden-section');
     document.querySelector('.global-back-btn').classList.add('hidden-section');
+    
+    // تنظيف التحديد فقط عند العودة لقسم التحديد
+    clearSelection();
+}
+
+// إضافة دالة جديدة لتنظيف التحديد
+function clearSelection() {
+    // إزالة التحديد من جميع البطاقات
+    document.querySelectorAll('.app-card').forEach(card => {
+        card.classList.remove('selected');
+    });
+    
+    // تفريغ مجموعة التطبيقات المحددة
+    selectedApps.clear();
+    
+    // حذف البيانات من localStorage
+    localStorage.removeItem('selectedApps');
 }
 
 // إضافة تأثيرات CSS
