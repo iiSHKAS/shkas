@@ -789,6 +789,21 @@ body::after,
     margin-top: auto;
     padding-top: 4rem;
     margin-bottom: 4rem;
+    opacity: 0; /* نبدأ بشفافية كاملة */
+    animation: showMouseContainer 0.5s ease forwards;
+    animation-delay: 2s; /* ننتظر ظهور البطاقات أولاً */
+}
+
+/* إضافة الأنيميشن الجديد */
+@keyframes showMouseContainer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* تنسيق زر الماوس */
@@ -1676,4 +1691,58 @@ body {
     flex-direction: column;
     gap: 0.8rem;
     height: 100%;
+}
+
+/* أنيميشن العنوان - ظهور من الأعلى */
+.typing-animation {
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slideDown 1s ease forwards;
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* أنيميشن البطاقات - ظهور من اليمين */
+.info-card.fade-in {
+    opacity: 0;
+    transform: translateX(100px);
+    visibility: hidden;
+}
+
+.info-card.fade-in.active {
+    visibility: visible;
+    animation: slideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    70% {
+        transform: translateX(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* تحسين تأثير التحويم على البطاقات */
+.info-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.info-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 } 
