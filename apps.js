@@ -1,4 +1,4 @@
-// version: 1739469370
+// version: 1739469621
 let appsList = {
   "browsers": [
     {
@@ -489,6 +489,12 @@ let appsList = {
       "id": "AnyDeskSoftwareGmbH.AnyDesk",
       "description": "برنامج التحكم عن بعد بالحواسيب",
       "image": "https://cdn2.steamgriddb.com/icon_thumb/7b85a96c455fa59d4d2780f095b9abd3.png"
+    },
+    {
+      "name": "Oracle VM VirtualBox",
+      "id": "Oracle.VirtualBox ",
+      "description": "هو برنامج مفتوح المصدر يسمح بإنشاء وتشغيل أنظمة تشغيل افتراضية على جهاز الكمبيوتر",
+      "image": "https://cdn2.steamgriddb.com/icon/20c2d6602a4a544c1854089566e30967/32/1024x1024.png"
     }
   ]
 };
