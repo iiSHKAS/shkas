@@ -34,6 +34,12 @@
       "name": "Zen Browser",
       "id": "Zen-Team.Zen-Browser",
       "description": "متصفح يركز على البساطة والهدوء"
+    },
+    {
+      "name": "test",
+      "id": "test",
+      "description": "test",
+      "image": "https://cdn2.steamgriddb.com/thumb/39c2966989c4f0091a99eef7f1d09c09.jpg"
     }
   ],
   "gaming and emulators": [
