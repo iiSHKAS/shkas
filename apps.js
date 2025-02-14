@@ -1,4 +1,4 @@
-// version: 1739541284
+// version: 1739541507
 let appsList = {
   "browsers": [
     {
@@ -42,6 +42,12 @@ let appsList = {
       "id": "Google.Chrome",
       "description": "متصفح سريع وآمن من Google",
       "image": "https://raw.githubusercontent.com/alrra/browser-logos/main/src/chrome/chrome.svg"
+    },
+    {
+      "name": "Microsoft Edge",
+      "id": "Microsoft.Edge",
+      "description": "إيدج هو متصفح ويب سريع وآمن من مايكروسوفت ",
+      "image": "https://cdn2.steamgriddb.com/icon_thumb/714cb7478d98b1cb51d1f5f515f060c7.png"
     }
   ],
   "gaming and emulators": [
