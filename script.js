@@ -206,6 +206,36 @@ document.addEventListener('DOMContentLoaded', function() {
             card.classList.add('selected');
         }
     });
+
+    // إضافة استدعاء لدالة تحديث العدد
+    updateAppsCount();
+    
+    // تحديث العدد عند تغيير التصنيف
+    if (categoryButtons.length > 0) {
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // الكود الموجود مسبقاً للتصنيف
+                const category = button.dataset.category;
+                if (category === 'all') {
+                    updateAppsCount();
+                } else {
+                    document.querySelector('.count-number').textContent = appsList[category].length;
+                }
+            });
+        });
+    }
+
+    // تحديث العدد عند البحث
+    if (searchInput) {
+        let searchTimeout;
+        searchInput.addEventListener('input', function(e) {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                const visibleApps = document.querySelectorAll('.app-card:not([style*="display: none"])').length;
+                document.querySelector('.count-number').textContent = visibleApps;
+            }, 300);
+        });
+    }
 });
 
 function handleBackClick() {
@@ -498,4 +528,13 @@ function handleImageError(event) {
     const category = appCard.getAttribute('data-category');
     const defaultIcon = defaultCategoryIcons[category];
     event.target.src = defaultIcon;
+}
+
+// إضافة دالة لحساب إجمالي عدد البرامج
+function updateAppsCount() {
+    let totalApps = 0;
+    for (let category in appsList) {
+        totalApps += appsList[category].length;
+    }
+    document.querySelector('.count-number').textContent = totalApps;
 } 
