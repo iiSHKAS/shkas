@@ -1,4 +1,4 @@
-// version: 1739543693
+// version: 1739543902
 let appsList = {
   "browsers": [
     {
@@ -278,6 +278,12 @@ let appsList = {
       "id": "Codeium.Windsurf",
       "description": "هو محرر أكواد مدعوم بالذكاء الاصطناعي\n",
       "image": "https://codeium.com/logo/windsurf_teal_logo.svg"
+    },
+    {
+      "name": "Node.js",
+      "id": "OpenJS.NodeJS",
+      "description": "هي بيئة تشغيل مفتوحة المصدر تعتمد على محرك جافاسكريبت",
+      "image": "https://img.icons8.com/?size=100&id=hsPbhkOH4FMe&format=png&color=000000"
     }
   ],
   "hardware": [
