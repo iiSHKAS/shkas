@@ -1,4 +1,4 @@
-// version: 1739543902
+// version: 1739544044
 let appsList = {
   "browsers": [
     {
@@ -120,7 +120,7 @@ let appsList = {
     {
       "name": "LabyMod",
       "id": "LabyMediaGmbH.LabyModLauncher",
-      "description": "هو تعديل مجاني ومفتوح المصدر للعبة ماينكرافت ,يعزز تجربة اللعب من خلال تحسين الاداء واضافة ميزات مثل الدردشة الصوتية ودعم الاضافات المتنوعة",
+      "description": "هو تعديل مجاني ومفتوح المصدر للعبة ماينكرافت",
       "image": "https://cdn2.steamgriddb.com/icon_thumb/b0b6d3904aef7a2a489504322712f1cc.png"
     }
   ],
