@@ -1,4 +1,4 @@
-// version: 1739544044
+// version: 1739544070
 let appsList = {
   "browsers": [
     {
@@ -188,7 +188,7 @@ let appsList = {
     {
       "name": "Plex",
       "id": "Plex.Plex",
-      "description": "منصة ترفيهية شاملة تتيح لك مشاهدة الأفلام والبرامج التلفزيونية والبث التلفزيوني المباشر",
+      "description": "منصة ترفيهية شاملة تتيح لك مشاهدة الأفلام والبرامج التلفزيونية",
       "image": "https://cdn2.steamgriddb.com/icon/7553e94d39fd4649ff75386a83ed3789/32/256x256.png"
     }
   ],
