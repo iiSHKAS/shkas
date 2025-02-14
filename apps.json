@@ -115,6 +115,12 @@
       "id": "PCSX2Team.PCSX2",
       "description": "هو محاكي مجاني ومفتوح المصدر لجهاز PS2 لتشغيل العاب الــ PS2  ",
       "image": "https://cdn2.steamgriddb.com/icon/9a32ff36c65e8ba30915a21b7bd76506/32/256x256.png"
+    },
+    {
+      "name": "LabyMod",
+      "id": "LabyMediaGmbH.LabyModLauncher",
+      "description": "هو تعديل مجاني ومفتوح المصدر للعبة ماينكرافت ,يعزز تجربة اللعب من خلال تحسين الاداء واضافة ميزات مثل الدردشة الصوتية ودعم الاضافات المتنوعة",
+      "image": "https://cdn2.steamgriddb.com/icon_thumb/b0b6d3904aef7a2a489504322712f1cc.png"
     }
   ],
   "social and entertainment": [
