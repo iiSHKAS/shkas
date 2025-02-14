@@ -1,4 +1,4 @@
-// version: 1739544070
+// version: 1739544387
 let appsList = {
   "browsers": [
     {
@@ -332,7 +332,7 @@ let appsList = {
     {
       "name": "SteelSeries GG",
       "id": "SteelSeries.GG",
-      "description": "برنامج التحكم في أجهزة SteelSeries",
+      "description": "برنامج التحكم في أجهزة SteelSeries ومكسر صوت",
       "image": "https://img.icons8.com/?size=100&id=D5GeGSBNDmBW&format=png&color=000000"
     }
   ],
