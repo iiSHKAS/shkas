@@ -518,6 +518,12 @@
       "id": "Oracle.VirtualBox ",
       "description": "هو برنامج مفتوح المصدر يسمح بإنشاء وتشغيل أنظمة تشغيل افتراضية على جهاز الكمبيوتر",
       "image": "https://cdn2.steamgriddb.com/icon/20c2d6602a4a544c1854089566e30967/32/1024x1024.png"
+    },
+    {
+      "name": "Medal",
+      "id": "MedalB.V.Medal",
+      "description": "هو تطبيق مجاني يتيح للاعبين تسجيل وتحرير ومشاركة لحظات اللعب المميزة بسهولة",
+      "image": "https://play-lh.googleusercontent.com/PBPmQrr8G0UXmlYG16bciNAwyegnBmi5lJD9emhkBpgN4y-upk9__DGOh5nI9iysWb4=s48-rw"
     }
   ]
 }
