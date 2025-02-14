@@ -97,6 +97,7 @@ body::after {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 2rem;
     background: transparent;
 }
 
@@ -138,8 +139,8 @@ body::after {
 }
 
 #poda {
-    position: static;
-    transform: none;
+    position: relative;
+    margin: 0;
 }
 
 .input::placeholder {
@@ -1745,4 +1746,60 @@ body {
 .info-card:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* تنسيق مربع عدد البرامج */
+.apps-count {
+    position: absolute;
+    left: 12rem;
+    background: rgba(74, 144, 226, 0.1);
+    border: 2px solid rgba(74, 144, 226, 0.3);
+    border-radius: 0.75rem;
+    padding: 0.8em 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    font-weight: 500;
+    box-shadow: 0 0.3125rem 0.9375rem rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.apps-count:hover {
+    background: rgba(74, 144, 226, 0.15);
+    border-color: rgba(74, 144, 226, 0.4);
+    transform: translateY(-2px);
+}
+
+.count-icon {
+    font-size: 1.2em;
+}
+
+.count-number {
+    font-weight: bold;
+    color: #4a90e2;
+}
+
+/* تحسين التجاوب على الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .search-section {
+        flex-direction: column;
+        padding: 1rem;
+        height: auto;
+        gap: 1rem;
+    }
+    
+    #poda {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .apps-count {
+        position: static;
+        width: 100%;
+        justify-content: center;
+        margin: 0;
+    }
 } 
