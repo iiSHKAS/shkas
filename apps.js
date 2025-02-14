@@ -1,4 +1,4 @@
-// version: 1739541507
+// version: 1739541598
 let appsList = {
   "browsers": [
     {
@@ -258,7 +258,7 @@ let appsList = {
     {
       "name": "Windsurf",
       "id": "Codeium.Windsurf",
-      "description": "هو محرر أكواد مدعوم بالذكاء الاصطناعي، يجمع بين ميزات محررات الاكواد مثل VS Code مع قدرات كتابة وتنظيم الكود تلقائيًا\n",
+      "description": "هو محرر أكواد مدعوم بالذكاء الاصطناعي\n",
       "image": "https://codeium.com/logo/windsurf_teal_logo.svg"
     }
   ],
