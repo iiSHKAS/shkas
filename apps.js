@@ -1,4 +1,4 @@
-// version: 1739543420
+// version: 1739543663
 let appsList = {
   "browsers": [
     {
@@ -184,6 +184,11 @@ let appsList = {
       "id": "ThaUnknown.Miru",
       "description": "تطبيق لمشاهدة الأنمي",
       "image": "https://cdn2.steamgriddb.com/icon_thumb/702c7c3c2936d1b5a651c1cd184b2e7f.png"
+    },
+    {
+      "name": "Plex",
+      "id": "Plex.Plex",
+      "description": "منصة ترفيهية شاملة تتيح لك مشاهدة الأفلام والبرامج التلفزيونية والبث التلفزيوني المباشر"
     }
   ],
   "streaming and audio": [
