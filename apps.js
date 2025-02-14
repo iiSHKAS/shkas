@@ -1,4 +1,4 @@
-// version: 1739469621
+// version: 1739541284
 let appsList = {
   "browsers": [
     {
@@ -248,6 +248,12 @@ let appsList = {
       "id": "Anysphere.Cursor",
       "description": "محرر أكواد مدعوم بالذكاء الاصطناعي",
       "image": "https://avatars.githubusercontent.com/u/126759922?s=48&v=4"
+    },
+    {
+      "name": "Windsurf",
+      "id": "Codeium.Windsurf",
+      "description": "هو محرر أكواد مدعوم بالذكاء الاصطناعي، يجمع بين ميزات محررات الاكواد مثل VS Code مع قدرات كتابة وتنظيم الكود تلقائيًا\n",
+      "image": "https://codeium.com/logo/windsurf_teal_logo.svg"
     }
   ],
   "hardware": [
