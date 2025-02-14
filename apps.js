@@ -1,4 +1,4 @@
-// version: 1739541598
+// version: 1739541825
 let appsList = {
   "browsers": [
     {
@@ -507,6 +507,12 @@ let appsList = {
       "id": "Oracle.VirtualBox ",
       "description": "هو برنامج مفتوح المصدر يسمح بإنشاء وتشغيل أنظمة تشغيل افتراضية على جهاز الكمبيوتر",
       "image": "https://cdn2.steamgriddb.com/icon/20c2d6602a4a544c1854089566e30967/32/1024x1024.png"
+    },
+    {
+      "name": "PCSX2",
+      "id": "PCSX2Team.PCSX2",
+      "description": "هو محاكي مجاني ومفتوح المصدر لجهاز PS2 لتشغيل العاب الــ PS2  ",
+      "image": "https://cdn2.steamgriddb.com/icon/9a32ff36c65e8ba30915a21b7bd76506/32/256x256.png"
     }
   ]
 };
