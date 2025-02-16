@@ -1,4 +1,4 @@
-// version: 1739712181
+// version: 1739712268
 let appsList = {
   "browsers": [
     {
@@ -567,6 +567,12 @@ let appsList = {
       "id": "VideoLAN.VLC",
       "description": "مشغل وسائط مجاني ومفتوح المصدر يدعم تشغيل معظم صيغ الصوت والفيديو",
       "image": "https://img.icons8.com/?size=100&id=13445&format=png&color=000000"
+    },
+    {
+      "name": "Blender",
+      "id": "BlenderFoundation.Blender",
+      "description": "برنامج مجاني ومفتوح المصدر لتصميم الرسوم ثلاثية الأبعاد والتحريك والمؤثرات البصرية",
+      "image": "https://img.icons8.com/?size=100&id=65231&format=png&color=000000"
     }
   ]
 };
