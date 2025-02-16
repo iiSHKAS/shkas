@@ -1,4 +1,4 @@
-// version: 1739711966
+// version: 1739712066
 let appsList = {
   "browsers": [
     {
@@ -555,6 +555,12 @@ let appsList = {
       "id": "Evernote.Evernote",
       "description": "تطبيق لتدوين الملاحظات وتنظيمها ومزامنتها عبر الأجهزة",
       "image": "https://img.icons8.com/?size=100&id=taZbVB7wKSaU&format=png&color=000000"
+    },
+    {
+      "name": "VLC",
+      "id": "VideoLAN.VLC",
+      "description": "مشغل وسائط مجاني ومفتوح المصدر يدعم تشغيل معظم صيغ الصوت والفيديو",
+      "image": "https://img.icons8.com/?size=100&id=13445&format=png&color=000000"
     }
   ]
 };
