@@ -1,4 +1,4 @@
-// version: 1739714717
+// version: 1739714745
 let appsList = {
   "browsers": [
     {
@@ -192,12 +192,6 @@ let appsList = {
       "image": "https://cdn2.steamgriddb.com/icon/7553e94d39fd4649ff75386a83ed3789/32/256x256.png"
     },
     {
-      "name": "Spotify",
-      "id": "Spotify.Spotify",
-      "description": "خدمة بث موسيقى تتيح للمستخدمين الاستماع إلى الأغاني والبودكاست عبر الإنترنت",
-      "image": "https://img.icons8.com/?size=100&id=63316&format=png&color=000000"
-    },
-    {
       "name": "Skype",
       "id": "Microsoft.Skype",
       "description": "برنامج يتيح إجراء المكالمات الصوتية والمرئية وإرسال الرسائل عبر الإنترنت",
@@ -208,6 +202,12 @@ let appsList = {
       "id": "Apple.iTunes",
       "description": "برنامج من آبل لإدارة وتشغيل الموسيقى",
       "image": "https://img.icons8.com/?size=100&id=63304&format=png&color=000000"
+    },
+    {
+      "name": "Spotify",
+      "id": "Spotify.Spotify",
+      "description": "خدمة بث موسيقى تتيح للمستخدمين الاستماع إلى الأغاني والبودكاست",
+      "image": "https://img.icons8.com/?size=100&id=63316&format=png&color=000000"
     }
   ],
   "streaming and audio": [
