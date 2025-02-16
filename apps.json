@@ -303,9 +303,9 @@
       "image": "https://img.icons8.com/?size=100&id=hsPbhkOH4FMe&format=png&color=000000"
     },
     {
-      "name": "Eclipse",
+      "name": "Theia IDE",
       "id": "EclipseFoundation.TheiaIDE",
-      "description": "بيئة التطوير المتكاملة إكليبس تدعم تطوير البرمجيات بعدة لغات برمجة",
+      "description": "بيئة تطوير متكاملة تدعم تطوير البرمجيات بعدة لغات برمجة",
       "image": "https://user-images.githubusercontent.com/72274403/109018449-5db00500-7675-11eb-9084-bb6b23256f03.png"
     }
   ],
