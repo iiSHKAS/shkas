@@ -1,4 +1,4 @@
-// version: 1739714299
+// version: 1739714332
 let appsList = {
   "browsers": [
     {
@@ -563,12 +563,6 @@ let appsList = {
       "image": "https://img.icons8.com/?size=100&id=13445&format=png&color=000000"
     },
     {
-      "name": "Blender",
-      "id": "BlenderFoundation.Blender",
-      "description": "برنامج مجاني ومفتوح المصدر لتصميم الرسوم ثلاثية الأبعاد والتحريك والمؤثرات البصرية",
-      "image": "https://img.icons8.com/?size=100&id=65231&format=png&color=000000"
-    },
-    {
       "name": "Dropbox",
       "id": "Dropbox.Dropbox",
       "description": "خدمة تخزين سحابي تتيح حفظ الملفات ومزامنتها ومشاركتها عبر الأجهزة المختلفة",
@@ -603,6 +597,12 @@ let appsList = {
       "id": "MedalB.V.Medal",
       "description": "هو تطبيق مجاني يتيح للاعبين تسجيل وتحرير ومشاركة لحظات اللعب المميزة",
       "image": "https://play-lh.googleusercontent.com/PBPmQrr8G0UXmlYG16bciNAwyegnBmi5lJD9emhkBpgN4y-upk9__DGOh5nI9iysWb4=s48-rw"
+    },
+    {
+      "name": "Blender",
+      "id": "BlenderFoundation.Blender",
+      "description": "برنامج مجاني ومفتوح المصدر لتصميم الرسوم ثلاثية الأبعاد والتحريك وغيرها",
+      "image": "https://img.icons8.com/?size=100&id=65231&format=png&color=000000"
     }
   ]
 };
