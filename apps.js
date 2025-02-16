@@ -1,4 +1,4 @@
-// version: 1739713054
+// version: 1739713168
 let appsList = {
   "browsers": [
     {
@@ -591,6 +591,12 @@ let appsList = {
       "id": "TeamViewer.TeamViewer",
       "description": "برنامج يتيح التحكم عن بُعد في أجهزة الكمبيوتر وتقديم الدعم الفني عبر الإنترنت",
       "image": "https://cdn2.steamgriddb.com/icon_thumb/68ff9c82826dcda9030b6b0990efc033.png"
+    },
+    {
+      "name": " CCleaner",
+      "id": "Piriform.CCleaner",
+      "description": "برنامج لتحسين أداء النظام، حيث يقوم بتنظيف الكمبيوتر من الملفات غير المرغوب فيها وإصلاح الأخطاء لتحسين سرعة النظام",
+      "image": "https://cdn2.steamgriddb.com/icon/f4d6030a34f2d2fe887f570fb64ea8d9/32/256x256.png"
     }
   ]
 };
