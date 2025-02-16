@@ -1,4 +1,4 @@
-// version: 1739712542
+// version: 1739712700
 let appsList = {
   "browsers": [
     {
@@ -307,7 +307,7 @@ let appsList = {
       "name": "Eclipse",
       "id": "EclipseFoundation.TheiaIDE",
       "description": "بيئة التطوير المتكاملة إكليبس تدعم تطوير البرمجيات بعدة لغات برمجة",
-      "image": "https://api.winstall.app/icons/next/EclipseFoundation.TheiaIDE.webp"
+      "image": "https://projects.eclipse.org/modules/custom/eclipsefdn/eclipsefdn_projects/images/logos/default.png"
     }
   ],
   "hardware": [
