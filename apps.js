@@ -1,4 +1,4 @@
-// version: 1739712066
+// version: 1739712181
 let appsList = {
   "browsers": [
     {
@@ -202,6 +202,12 @@ let appsList = {
       "id": "Apple.iTunes",
       "description": "برنامج من آبل لإدارة وتشغيل الموسيقى والأفلام والتطبيقات على أجهزة الكمبيوتر وأجهزة iOS",
       "image": "https://img.icons8.com/?size=100&id=63304&format=png&color=000000"
+    },
+    {
+      "name": "Spotify",
+      "id": "Spotify.Spotify",
+      "description": "خدمة بث موسيقى تتيح للمستخدمين الاستماع إلى الأغاني والبودكاست عبر الإنترنت",
+      "image": "https://img.icons8.com/?size=100&id=63316&format=png&color=000000"
     }
   ],
   "streaming and audio": [
