@@ -550,12 +550,6 @@
       "image": "https://cdn2.steamgriddb.com/icon_thumb/7b85a96c455fa59d4d2780f095b9abd3.png"
     },
     {
-      "name": "Oracle VM VirtualBox",
-      "id": "Oracle.VirtualBox ",
-      "description": "هو برنامج مفتوح المصدر يسمح بإنشاء وتشغيل أنظمة تشغيل افتراضية على جهاز الكمبيوتر",
-      "image": "https://cdn2.steamgriddb.com/icon/20c2d6602a4a544c1854089566e30967/32/1024x1024.png"
-    },
-    {
       "name": "Medal",
       "id": "MedalB.V.Medal",
       "description": "هو تطبيق مجاني يتيح للاعبين تسجيل وتحرير ومشاركة لحظات اللعب المميزة بسهولة",
@@ -602,6 +596,12 @@
       "id": "TheDocumentFoundation.LibreOffice",
       "description": "مجموعة من تطبيقات المكتب المجانية والمفتوحة المصدر، تضم معالج نصوص وجداول بيانات وبرنامج تقديمات وغيرها من الأدوات",
       "image": "https://cdn2.steamgriddb.com/icon_thumb/d0ab67def3f9ebc9f2979059eadb2c21.png"
+    },
+    {
+      "name": "Oracle VM VirtualBox",
+      "id": "Oracle.VirtualBox ",
+      "description": "برنامج مفتوح المصدر يسمح بإنشاء وتشغيل أنظمة تشغيل افتراضية على جهاز الكمبيوتر",
+      "image": "https://cdn2.steamgriddb.com/icon/20c2d6602a4a544c1854089566e30967/32/1024x1024.png"
     }
   ]
 }
