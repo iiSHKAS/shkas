@@ -584,6 +584,12 @@
       "id": "Dropbox.Dropbox",
       "description": "خدمة تخزين سحابي تتيح حفظ الملفات ومزامنتها ومشاركتها عبر الأجهزة المختلفة",
       "image": "https://cdn2.steamgriddb.com/icon/2b3ef015848a286a5bd95d2d50d4f2e9/32/128x128.png"
+    },
+    {
+      "name": "TeamViewer",
+      "id": "TeamViewer.TeamViewer",
+      "description": "برنامج يتيح التحكم عن بُعد في أجهزة الكمبيوتر وتقديم الدعم الفني عبر الإنترنت",
+      "image": "https://cdn2.steamgriddb.com/icon_thumb/68ff9c82826dcda9030b6b0990efc033.png"
     }
   ]
 }
