@@ -1,4 +1,4 @@
-// version: 1739714745
+// version: 1739718083
 let appsList = {
   "browsers": [
     {
@@ -593,16 +593,16 @@ let appsList = {
       "image": "https://img.icons8.com/?size=100&id=65231&format=png&color=000000"
     },
     {
-      "name": "LibreOffice",
-      "id": "TheDocumentFoundation.LibreOffice",
-      "description": "مجموعة من تطبيقات المكتب المجانية والمفتوحة المصدر مشابهه لــ اوفيس",
-      "image": "https://cdn2.steamgriddb.com/icon_thumb/d0ab67def3f9ebc9f2979059eadb2c21.png"
-    },
-    {
       "name": " CCleaner",
       "id": "Piriform.CCleaner",
       "description": "برنامج لتحسين أداء النظام، وتنظيف الكمبيوتر من الملفات غير المرغوب فيها",
       "image": "https://cdn2.steamgriddb.com/icon/f4d6030a34f2d2fe887f570fb64ea8d9/32/256x256.png"
+    },
+    {
+      "name": "LibreOffice",
+      "id": "TheDocumentFoundation.LibreOffice",
+      "description": "مجموعة من تطبيقات المكتب المجانية والمفتوحة المصدر مشابهه لــ اوفيس",
+      "image": "https://img.icons8.com/?size=100&id=6QdgHJ8qH0g8&format=png&color=000000"
     }
   ]
 };
