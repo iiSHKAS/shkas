@@ -1,4 +1,4 @@
-// version: 1739711828
+// version: 1739711966
 let appsList = {
   "browsers": [
     {
@@ -196,6 +196,12 @@ let appsList = {
       "id": "Microsoft.Skype",
       "description": "برنامج يتيح إجراء المكالمات الصوتية والمرئية وإرسال الرسائل عبر الإنترنت",
       "image": "https://cdn2.steamgriddb.com/thumb/893b6ac72fb8d520f0711784709c574b.jpg"
+    },
+    {
+      "name": "iTunes\n",
+      "id": "Apple.iTunes",
+      "description": "برنامج من آبل لإدارة وتشغيل الموسيقى والأفلام والتطبيقات على أجهزة الكمبيوتر وأجهزة iOS",
+      "image": "https://img.icons8.com/?size=100&id=63304&format=png&color=000000"
     }
   ],
   "streaming and audio": [
