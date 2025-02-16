@@ -1,4 +1,4 @@
-// version: 1739714358
+// version: 1739714407
 let appsList = {
   "browsers": [
     {
@@ -575,12 +575,6 @@ let appsList = {
       "image": "https://cdn2.steamgriddb.com/icon_thumb/68ff9c82826dcda9030b6b0990efc033.png"
     },
     {
-      "name": "LibreOffice",
-      "id": "TheDocumentFoundation.LibreOffice",
-      "description": "مجموعة من تطبيقات المكتب المجانية والمفتوحة المصدر، تضم معالج نصوص وجداول بيانات وبرنامج تقديمات وغيرها من الأدوات",
-      "image": "https://cdn2.steamgriddb.com/icon_thumb/d0ab67def3f9ebc9f2979059eadb2c21.png"
-    },
-    {
       "name": "Oracle VM VirtualBox",
       "id": "Oracle.VirtualBox ",
       "description": "برنامج مفتوح المصدر يسمح بإنشاء وتشغيل أنظمة تشغيل افتراضية على جهاز الكمبيوتر",
@@ -603,6 +597,12 @@ let appsList = {
       "id": "Piriform.CCleaner",
       "description": "برنامج لتحسين أداء النظام، حيث يقوم بتنظيف الكمبيوتر من الملفات غير المرغوب فيها",
       "image": "https://cdn2.steamgriddb.com/icon/f4d6030a34f2d2fe887f570fb64ea8d9/32/256x256.png"
+    },
+    {
+      "name": "LibreOffice",
+      "id": "TheDocumentFoundation.LibreOffice",
+      "description": "مجموعة من تطبيقات المكتب المجانية والمفتوحة المصدر مشابهه لــ اوفيس",
+      "image": "https://cdn2.steamgriddb.com/icon_thumb/d0ab67def3f9ebc9f2979059eadb2c21.png"
     }
   ]
 };
