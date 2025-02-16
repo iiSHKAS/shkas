@@ -1,4 +1,4 @@
-// version: 1739712700
+// version: 1739712858
 let appsList = {
   "browsers": [
     {
@@ -579,6 +579,12 @@ let appsList = {
       "id": "BlenderFoundation.Blender",
       "description": "برنامج مجاني ومفتوح المصدر لتصميم الرسوم ثلاثية الأبعاد والتحريك والمؤثرات البصرية",
       "image": "https://img.icons8.com/?size=100&id=65231&format=png&color=000000"
+    },
+    {
+      "name": "Dropbox",
+      "id": "Dropbox.Dropbox",
+      "description": "خدمة تخزين سحابي تتيح حفظ الملفات ومزامنتها ومشاركتها عبر الأجهزة المختلفة",
+      "image": "https://cdn2.steamgriddb.com/icon/2b3ef015848a286a5bd95d2d50d4f2e9/32/128x128.png"
     }
   ]
 };
