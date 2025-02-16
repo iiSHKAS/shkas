@@ -1,4 +1,4 @@
-// version: 1739714262
+// version: 1739714299
 let appsList = {
   "browsers": [
     {
@@ -551,12 +551,6 @@ let appsList = {
       "image": "https://cdn2.steamgriddb.com/icon_thumb/7b85a96c455fa59d4d2780f095b9abd3.png"
     },
     {
-      "name": "Medal",
-      "id": "MedalB.V.Medal",
-      "description": "هو تطبيق مجاني يتيح للاعبين تسجيل وتحرير ومشاركة لحظات اللعب المميزة بسهولة",
-      "image": "https://play-lh.googleusercontent.com/PBPmQrr8G0UXmlYG16bciNAwyegnBmi5lJD9emhkBpgN4y-upk9__DGOh5nI9iysWb4=s48-rw"
-    },
-    {
       "name": "Evernote",
       "id": "Evernote.Evernote",
       "description": "تطبيق لتدوين الملاحظات وتنظيمها ومزامنتها عبر الأجهزة",
@@ -603,6 +597,12 @@ let appsList = {
       "id": "Oracle.VirtualBox ",
       "description": "برنامج مفتوح المصدر يسمح بإنشاء وتشغيل أنظمة تشغيل افتراضية على جهاز الكمبيوتر",
       "image": "https://cdn2.steamgriddb.com/icon/20c2d6602a4a544c1854089566e30967/32/1024x1024.png"
+    },
+    {
+      "name": "Medal",
+      "id": "MedalB.V.Medal",
+      "description": "هو تطبيق مجاني يتيح للاعبين تسجيل وتحرير ومشاركة لحظات اللعب المميزة",
+      "image": "https://play-lh.googleusercontent.com/PBPmQrr8G0UXmlYG16bciNAwyegnBmi5lJD9emhkBpgN4y-upk9__DGOh5nI9iysWb4=s48-rw"
     }
   ]
 };
