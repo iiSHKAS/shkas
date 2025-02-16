@@ -1,4 +1,4 @@
-// version: 1739544387
+// version: 1739711679
 let appsList = {
   "browsers": [
     {
@@ -190,6 +190,12 @@ let appsList = {
       "id": "Plex.Plex",
       "description": "منصة ترفيهية شاملة تتيح لك مشاهدة الأفلام والبرامج التلفزيونية",
       "image": "https://cdn2.steamgriddb.com/icon/7553e94d39fd4649ff75386a83ed3789/32/256x256.png"
+    },
+    {
+      "name": "Skype",
+      "id": "Microsoft.Skype",
+      "description": "برنامج يتيح إجراء المكالمات الصوتية والمرئية وإرسال الرسائل عبر الإنترنت",
+      "image": "https://cdn2.steamgriddb.com/thumb/893b6ac72fb8d520f0711784709c574b.jpg"
     }
   ],
   "streaming and audio": [
