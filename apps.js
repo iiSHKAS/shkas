@@ -1,4 +1,4 @@
-// version: 1739713168
+// version: 1739713287
 let appsList = {
   "browsers": [
     {
@@ -597,6 +597,12 @@ let appsList = {
       "id": "Piriform.CCleaner",
       "description": "برنامج لتحسين أداء النظام، حيث يقوم بتنظيف الكمبيوتر من الملفات غير المرغوب فيها وإصلاح الأخطاء لتحسين سرعة النظام",
       "image": "https://cdn2.steamgriddb.com/icon/f4d6030a34f2d2fe887f570fb64ea8d9/32/256x256.png"
+    },
+    {
+      "name": "LibreOffice",
+      "id": "TheDocumentFoundation.LibreOffice",
+      "description": "مجموعة من تطبيقات المكتب المجانية والمفتوحة المصدر، تضم معالج نصوص وجداول بيانات وبرنامج تقديمات وغيرها من الأدوات",
+      "image": "https://cdn2.steamgriddb.com/icon_thumb/d0ab67def3f9ebc9f2979059eadb2c21.png"
     }
   ]
 };
