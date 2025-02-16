@@ -1,4 +1,4 @@
-// version: 1739714332
+// version: 1739714358
 let appsList = {
   "browsers": [
     {
@@ -575,12 +575,6 @@ let appsList = {
       "image": "https://cdn2.steamgriddb.com/icon_thumb/68ff9c82826dcda9030b6b0990efc033.png"
     },
     {
-      "name": " CCleaner",
-      "id": "Piriform.CCleaner",
-      "description": "برنامج لتحسين أداء النظام، حيث يقوم بتنظيف الكمبيوتر من الملفات غير المرغوب فيها وإصلاح الأخطاء لتحسين سرعة النظام",
-      "image": "https://cdn2.steamgriddb.com/icon/f4d6030a34f2d2fe887f570fb64ea8d9/32/256x256.png"
-    },
-    {
       "name": "LibreOffice",
       "id": "TheDocumentFoundation.LibreOffice",
       "description": "مجموعة من تطبيقات المكتب المجانية والمفتوحة المصدر، تضم معالج نصوص وجداول بيانات وبرنامج تقديمات وغيرها من الأدوات",
@@ -603,6 +597,12 @@ let appsList = {
       "id": "BlenderFoundation.Blender",
       "description": "برنامج مجاني ومفتوح المصدر لتصميم الرسوم ثلاثية الأبعاد والتحريك وغيرها",
       "image": "https://img.icons8.com/?size=100&id=65231&format=png&color=000000"
+    },
+    {
+      "name": " CCleaner",
+      "id": "Piriform.CCleaner",
+      "description": "برنامج لتحسين أداء النظام، حيث يقوم بتنظيف الكمبيوتر من الملفات غير المرغوب فيها",
+      "image": "https://cdn2.steamgriddb.com/icon/f4d6030a34f2d2fe887f570fb64ea8d9/32/256x256.png"
     }
   ]
 };
