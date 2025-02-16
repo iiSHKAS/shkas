@@ -1,4 +1,4 @@
-// version: 1739711679
+// version: 1739711828
 let appsList = {
   "browsers": [
     {
@@ -543,6 +543,12 @@ let appsList = {
       "id": "MedalB.V.Medal",
       "description": "هو تطبيق مجاني يتيح للاعبين تسجيل وتحرير ومشاركة لحظات اللعب المميزة بسهولة",
       "image": "https://play-lh.googleusercontent.com/PBPmQrr8G0UXmlYG16bciNAwyegnBmi5lJD9emhkBpgN4y-upk9__DGOh5nI9iysWb4=s48-rw"
+    },
+    {
+      "name": "Evernote",
+      "id": "Evernote.Evernote",
+      "description": "تطبيق لتدوين الملاحظات وتنظيمها ومزامنتها عبر الأجهزة",
+      "image": "https://img.icons8.com/?size=100&id=taZbVB7wKSaU&format=png&color=000000"
     }
   ]
 };
