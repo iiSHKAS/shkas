@@ -1,4 +1,4 @@
-// version: 1739712268
+// version: 1739712483
 let appsList = {
   "browsers": [
     {
@@ -302,6 +302,12 @@ let appsList = {
       "id": "OpenJS.NodeJS",
       "description": "هي بيئة تشغيل مفتوحة المصدر تعتمد على محرك جافاسكريبت",
       "image": "https://img.icons8.com/?size=100&id=hsPbhkOH4FMe&format=png&color=000000"
+    },
+    {
+      "name": "Eclipse",
+      "id": "EclipseFoundation.TheiaIDE",
+      "description": "بيئة التطوير المتكاملة إكليبس تدعم تطوير البرمجيات بعدة لغات برمجة",
+      "image": "https://api.winstall.app/icons/next/EclipseFoundation.TheiaIDE.webp"
     }
   ],
   "hardware": [
